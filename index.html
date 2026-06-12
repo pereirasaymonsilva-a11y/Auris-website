@@ -29,73 +29,7 @@ body {
     padding: 0 24px;
 }
 
-/* NAVBAR */
-.navbar {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(20px);
-    background: rgba(8, 8, 16, 0.75);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.15);
-    z-index: 100;
-    padding: 16px 0;
-}
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-.logo-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.logo-nav img {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    box-shadow: 0 0 8px cyan;
-}
-.logo-nav span {
-    font-size: 1.7rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff, #88f7ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-}
-.nav-links a {
-    color: #ddddff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: 0.2s;
-}
-.nav-links a:hover {
-    color: #2effe6;
-    text-shadow: 0 0 5px cyan;
-}
-.btn-download-nav {
-    background: linear-gradient(90deg, #00c3ff, #0099ff);
-    padding: 8px 20px;
-    border-radius: 40px;
-    font-weight: bold;
-    color: white !important;
-    box-shadow: 0 0 12px rgba(0,180,255,0.4);
-}
-.btn-download-nav:hover {
-    transform: scale(1.02);
-    background: linear-gradient(90deg, #00d4ff, #00aaff);
-}
-
-/* HERO */
+/* HERO - sem navbar */
 .hero {
     text-align: center;
     padding: 70px 20px 50px;
@@ -149,10 +83,38 @@ h1 {
     font-size: 0.85rem;
 }
 
+/* navigation menu (links no conteúdo, estilo botões suaves) */
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0 20px;
+}
+.nav-btn {
+    background: rgba(20, 22, 40, 0.7);
+    backdrop-filter: blur(4px);
+    padding: 10px 20px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #ccd6ff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    border: 1px solid rgba(0,255,255,0.2);
+}
+.nav-btn:hover {
+    background: #00a6ff20;
+    border-color: cyan;
+    color: white;
+    transform: translateY(-2px);
+}
+
 /* section base */
 .section {
     padding: 70px 0 50px;
     border-bottom: 1px solid rgba(100, 100, 150, 0.2);
+    scroll-margin-top: 20px;
 }
 .section-title {
     font-size: 2.3rem;
@@ -350,48 +312,44 @@ footer {
     border-top: 1px solid #1f2340;
 }
 @media (max-width: 760px) {
-    .nav-container {
-        flex-direction: column;
-    }
     h1 {
         font-size: 48px;
     }
     .section-title {
         font-size: 1.8rem;
     }
+    .nav-buttons {
+        gap: 8px;
+    }
+    .nav-btn {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
 }
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="container nav-container">
-        <div class="logo-nav">
-            <img id="navLogo" alt="logo" src="https://placehold.co/200x200/0a2f44/cyan?text=A">
-            <span>AURIS</span>
-        </div>
-        <div class="nav-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#recursos">Recursos</a>
-            <a href="#screenshots">Capturas</a>
-            <a href="#changelog">Changelog</a>
-            <a href="#downloads-old">Downloads</a>
-            <a href="#faq">FAQ</a>
-            <a href="#credits">Créditos</a>
-            <a href="#" id="navDownloadBtn" class="btn-download-nav">⬇ Baixar</a>
-        </div>
-    </div>
-</nav>
-
 <main>
     <div class="container">
-        <!-- Hero -->
+        <!-- Hero principal -->
         <section class="hero">
             <img class="logo-main" id="mainLogo" alt="Auris Icon">
             <h1>Auris</h1>
             <p class="tagline">Player de música moderno, rápido e sem anúncios. Material 3, equalizador e organização inteligente.</p>
             <a class="download-btn" id="heroDownloadBtn">⬇ Baixar Auris (APK)</a>
             <div class="version-badge" id="versionSpan">Versão 2.2.0 • Android 11+</div>
+            
+            <!-- Menu de navegação suave (sem navbar fixa) -->
+            <div class="nav-buttons">
+                <a href="#sobre" class="nav-btn">🎵 Sobre</a>
+                <a href="#recursos" class="nav-btn">✨ Recursos</a>
+                <a href="#screenshots" class="nav-btn">📸 Capturas</a>
+                <a href="#changelog" class="nav-btn">📜 Changelog</a>
+                <a href="#downloads-old" class="nav-btn">📥 Downloads</a>
+                <a href="#faq" class="nav-btn">❓ FAQ</a>
+                <a href="#credits" class="nav-btn">👨‍💻 Créditos</a>
+            </div>
         </section>
 
         <!-- Sobre o Auris -->
@@ -479,7 +437,7 @@ footer {
             </div>
         </section>
 
-        <!-- Política de Privacidade Modal (simplificada) -->
+        <!-- Política de Privacidade Modal -->
         <div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:999; align-items:center; justify-content:center;">
             <div style="background:#11121e; max-width:500px; margin:20px; padding:28px; border-radius:40px; border:1px solid cyan;">
                 <h2 style="margin-bottom:12px;">Política de Privacidade</h2>
@@ -498,79 +456,60 @@ footer {
 </footer>
 
 <script>
-    // CONFIGURAÇÕES GLOBAIS
-    const APK_BASE_URL = "https://auris.download/golden/";  // link exemplo, substitui por real
-    const LOGO_URL = "https://placehold.co/400x400/0b2f3f/cyan?text=AURIS"; // ícone representativo
+    // CONFIGURAÇÕES
+    const LOGO_URL = "https://placehold.co/400x400/0b2f3f/cyan?text=AURIS";
     
-    // Atualizar logos
     document.getElementById("mainLogo").src = LOGO_URL;
-    document.getElementById("navLogo").src = LOGO_URL;
     document.getElementById("versionSpan").innerText = "Versão 2.2.0 • Android 11+ | Material 3";
 
-    // links de download dinâmicos (simulação com alerta)
-    const downloadButtons = [document.getElementById("heroDownloadBtn"), document.getElementById("navDownloadBtn")];
+    // Download handler
     const downloadHandler = (e) => {
         e.preventDefault();
-        alert("📲 Demo: Download do Auris v2.2.0.apk (integração com servidor real em produção).\nEm um site real, o arquivo APK seria baixado.");
-        window.open("#", "_blank"); // apenas simulação
+        alert("📲 Demo: Download do Auris v2.2.0.apk (servidor real em produção).\nEm breve o link oficial estará disponível.");
     };
-    downloadButtons.forEach(btn => btn.addEventListener("click", downloadHandler));
+    document.getElementById("heroDownloadBtn").addEventListener("click", downloadHandler);
     
-    // links de versões antigas
-    const oldApks = document.querySelectorAll(".old-apk");
-    oldApks.forEach(link => {
+    // Versões antigas
+    document.querySelectorAll(".old-apk").forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
-            const ver = link.getAttribute("data-ver") || "historico";
-            alert(`🔁 Download da versão ${ver} do Auris (arquivo APK disponível nos servidores oficiais).`);
+            const ver = link.getAttribute("data-ver") || "versão";
+            alert(`🔁 Download da versão ${ver} do Auris disponível nos arquivos oficiais.`);
         });
     });
 
     // FAQ accordion
-    const faqItems = document.querySelectorAll(".faq-item");
-    faqItems.forEach(item => {
-        const questionDiv = item.querySelector(".faq-question");
-        questionDiv.addEventListener("click", () => {
+    document.querySelectorAll(".faq-item").forEach(item => {
+        const qDiv = item.querySelector(".faq-question");
+        qDiv.addEventListener("click", () => {
             item.classList.toggle("active");
-            const plusSpan = questionDiv.querySelector(".plus");
-            if(item.classList.contains("active")) plusSpan.innerHTML = "−";
-            else plusSpan.innerHTML = "+";
+            const plusSpan = qDiv.querySelector(".plus");
+            plusSpan.innerHTML = item.classList.contains("active") ? "−" : "+";
         });
     });
 
-    // política de privacidade modal
-    const privacyLink = document.getElementById("privacyLink");
+    // Modal de privacidade
     const modal = document.getElementById("privacyModal");
-    const closeModal = document.getElementById("closeModalBtn");
-    privacyLink.addEventListener("click", (e) => {
+    document.getElementById("privacyLink").addEventListener("click", (e) => {
         e.preventDefault();
         modal.style.display = "flex";
     });
-    closeModal.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-    window.addEventListener("click", (e) => {
-        if(e.target === modal) modal.style.display = "none";
-    });
+    document.getElementById("closeModalBtn").addEventListener("click", () => modal.style.display = "none");
+    window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
 
-    // suavizar navegação
-    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+    // Scroll suave para os links internos
+    document.querySelectorAll('.nav-btn').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            if(targetId === "#") return;
-            const targetEl = document.querySelector(targetId);
-            if(targetEl) {
-                e.preventDefault();
-                targetEl.scrollIntoView({ behavior: 'smooth' });
+            if(targetId && targetId !== "#") {
+                const target = document.querySelector(targetId);
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
-    // também para botões diretos
-    const heroDownloadBtnScroll = document.getElementById("heroDownloadBtn");
-    // apenas comportamento de download mesmo (já tem)
-    
-    // Simular troca de ícone/background material
-    console.log("Auris Music Player site oficial - pronto para produção");
 </script>
 </body>
 </html>
