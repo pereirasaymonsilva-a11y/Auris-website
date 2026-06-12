@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auris - Music Player</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#09090f,#13131d);
+    color:white;
+}
+
+.hero{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 30px;
+}
+
+.logo{
+    width:120px;
+    height:120px;
+    border-radius:30px;
+    box-shadow:0 0 30px rgba(0,255,255,.4);
+    object-fit:cover;
+}
+
+h1{
+    margin-top:25px;
+    font-size:60px;
+}
+
+.subtitle{
+    margin-top:15px;
+    color:#b0b0b0;
+    max-width:600px;
+}
+
+.download{
+    margin-top:35px;
+    display:inline-block;
+    background:linear-gradient(90deg,#00e5ff,#00b8ff);
+    color:white;
+    text-decoration:none;
+    padding:18px 40px;
+    border-radius:16px;
+    font-size:20px;
+    font-weight:bold;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.download:hover{
+    transform:scale(1.05);
+}
+
+.version{
+    margin-top:15px;
+    color:#888;
+    font-size:14px;
+}
+
+.features{
+    padding:20px 20px 60px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    width:280px;
+    background:#181824;
+    padding:25px;
+    border-radius:20px;
+    transition:transform .3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#b0b0b0;
+    line-height:1.5;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<img class="logo" id="logo" alt="Auris">
+
+<h1>Auris</h1>
+
+<p class="subtitle">
+Um player de música moderno, rápido e elegante.
+Feito para quem ama ouvir música sem complicações.
+</p>
+
+<a class="download" id="downloadBtn">
+⬇ Baixar Auris
+</a>
+
+<p class="version" id="versionText">Versão 1.0 • Android 11+</p>
+
+</section>
+
+<section class="features">
+
+<div class="card">
+<h2>🎵 Música Offline</h2>
+<p>Escute suas músicas sem internet, onde quer que esteja.</p>
+</div>
+
+<div class="card">
+<h2>⚡ Rápido</h2>
+<p>Leve, fluido e otimizado para Android com desempenho incrível.</p>
+</div>
+
+<div class="card">
+<h2>🎨 Interface Moderna</h2>
+<p>Design bonito inspirado nos melhores players do mercado.</p>
+</div>
+
+<div class="card">
+<h2>🎨 Material 3</h2>
+<p>Contem Material 3, Design do Google</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Auris Music Player
+<br>
+Desenvolvido pela Golden System e o manteneador Saymon Silva
+</footer>
+
+<script>
+// CONFIGURAÇÕES
+const APP_NAME = "Auris";
+const APK_URL = "https://SEU-LINK-DE-DOWNLOAD.apk";
+const LOGO_URL = "https://youtube.png";
+
+// Aplicar configurações
+document.getElementById("logo").src = LOGO_URL;
+document.getElementById("downloadBtn").href = APK_URL;
+document.getElementById("versionText").innerHTML = `Versão 1.0 • Android 11+`;
+document.title = `${APP_NAME} - Music Player`;
+</script>
+
+</body>
+</html>
