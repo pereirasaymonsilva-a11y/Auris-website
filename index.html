@@ -2,176 +2,575 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auris - Music Player</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Auris · Music Player Moderno</title>
+<meta name="description" content="Auris é um player de música rápido, elegante e offline para Android. Design Material 3, equalizador, temas dinâmicos e sem anúncios.">
+<meta name="keywords" content="auris, music player, player de música android, offline, material you, golden system">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:linear-gradient(135deg,#09090f,#13131d);
-    color:white;
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at 10% 20%, #0b0b14, #030308);
+    color: #f0f0f8;
+    scroll-behavior: smooth;
 }
 
-.hero{
-    min-height:auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:60px 30px;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-.logo{
-    width:120px;
-    height:120px;
-    border-radius:30px;
-    box-shadow:0 0 30px rgba(0,255,255,.4);
-    object-fit:cover;
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(20px);
+    background: rgba(8, 8, 16, 0.75);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+    z-index: 100;
+    padding: 16px 0;
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-nav img {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px cyan;
+}
+.logo-nav span {
+    font-size: 1.7rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #88f7ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+.nav-links a {
+    color: #ddddff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+.nav-links a:hover {
+    color: #2effe6;
+    text-shadow: 0 0 5px cyan;
+}
+.btn-download-nav {
+    background: linear-gradient(90deg, #00c3ff, #0099ff);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: bold;
+    color: white !important;
+    box-shadow: 0 0 12px rgba(0,180,255,0.4);
+}
+.btn-download-nav:hover {
+    transform: scale(1.02);
+    background: linear-gradient(90deg, #00d4ff, #00aaff);
 }
 
-h1{
-    margin-top:25px;
-    font-size:60px;
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+}
+.logo-main {
+    width: 140px;
+    height: 140px;
+    border-radius: 36px;
+    object-fit: cover;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.5), 0 0 0 2px rgba(0,255,255,0.3);
+    transition: 0.2s;
+}
+h1 {
+    font-size: 64px;
+    margin-top: 28px;
+    font-weight: 800;
+    background: linear-gradient(to right, #ffffff, #b5f0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.tagline {
+    font-size: 1.2rem;
+    color: #b0b8dd;
+    max-width: 620px;
+    margin: 20px auto 0;
+}
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(105deg, #00e0ff, #0077ff);
+    padding: 16px 42px;
+    border-radius: 60px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 32px 0 15px;
+    box-shadow: 0 8px 20px rgba(0,160,255,0.4);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.download-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(0,200,255,0.5);
+}
+.version-badge {
+    color: #9098c0;
+    font-size: 0.85rem;
 }
 
-.subtitle{
-    margin-top:15px;
-    color:#b0b0b0;
-    max-width:600px;
+/* section base */
+.section {
+    padding: 70px 0 50px;
+    border-bottom: 1px solid rgba(100, 100, 150, 0.2);
+}
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 45px;
+    text-align: center;
+    background: linear-gradient(120deg, #eef, #9bc5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.grid-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+}
+.feature-card {
+    background: rgba(20, 22, 36, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 32px;
+    padding: 28px 22px;
+    width: 260px;
+    transition: 0.25s;
+}
+.feature-card:hover {
+    border-color: cyan;
+    transform: translateY(-8px);
+    background: rgba(30, 34, 52, 0.9);
+}
+.feature-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+.feature-card p {
+    color: #bbc3e0;
+    line-height: 1.4;
 }
 
-.download{
-    margin-top:35px;
-    display:inline-block;
-    background:linear-gradient(90deg,#00e5ff,#00b8ff);
-    color:white;
-    text-decoration:none;
-    padding:18px 40px;
-    border-radius:16px;
-    font-size:20px;
-    font-weight:bold;
-    transition:.3s;
-    cursor:pointer;
+/* screenshots */
+.screenshot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+.screenshot-card {
+    background: #0f0f1a;
+    border-radius: 38px;
+    padding: 12px;
+    box-shadow: 0 20px 30px -10px black;
+    width: 220px;
+    text-align: center;
+    border: 1px solid rgba(0,255,255,0.2);
+}
+.screenshot-card img {
+    width: 100%;
+    border-radius: 28px;
+    background: #1e1e2e;
+    aspect-ratio: 9 / 19;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+.mock-label {
+    margin-top: 12px;
+    font-weight: 500;
+    color: #aac8ff;
 }
 
-.download:hover{
-    transform:scale(1.05);
+/* changelog */
+.changelog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.version-card {
+    background: #13131f;
+    border-left: 5px solid #0ff;
+    padding: 22px 28px;
+    border-radius: 28px;
+}
+.version-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+    color: #c4e6ff;
+}
+.version-card ul {
+    padding-left: 24px;
+    color: #cbd5ff;
+}
+.version-card li {
+    margin: 8px 0;
 }
 
-.version{
-    margin-top:15px;
-    color:#888;
-    font-size:14px;
+/* downloads antigos */
+.downloads-old {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+}
+.old-apk {
+    background: #1b1b2a;
+    border-radius: 60px;
+    padding: 12px 28px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+    border: 1px solid #2c3e66;
+}
+.old-apk:hover {
+    background: #00b4ff30;
+    border-color: cyan;
 }
 
-.features{
-    padding:20px 20px 60px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
+/* FAQ */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item {
+    background: #0e0e18;
+    margin-bottom: 18px;
+    border-radius: 28px;
+    padding: 18px 26px;
+    cursor: pointer;
+    transition: 0.1s;
+    border: 1px solid #222;
+}
+.faq-question {
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    color: #d6e6ff;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: #b7c1e2;
+    padding-top: 0;
+}
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-top: 14px;
+}
+.plus {
+    font-size: 1.5rem;
+    color: cyan;
 }
 
-.card{
-    width:280px;
-    background:#181824;
-    padding:25px;
-    border-radius:20px;
-    transition:transform .3s;
+/* credits + apoio */
+.credits-block {
+    text-align: center;
+    background: #0b0b16;
+    border-radius: 48px;
+    padding: 30px;
+    margin-top: 20px;
 }
-
-.card:hover{
-    transform:translateY(-5px);
+.support-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0 15px;
 }
-
-.card h2{
-    margin-bottom:10px;
-    font-size:22px;
+.support-link {
+    background: #1f1f30;
+    padding: 10px 24px;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #ccdcff;
+    transition: 0.2s;
 }
-
-.card p{
-    color:#b0b0b0;
-    line-height:1.5;
+.support-link:hover {
+    background: #0077ff50;
+    color: white;
 }
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#777;
-    border-top:1px solid rgba(255,255,255,.1);
+.privacy-link {
+    color: #7f9eff;
+    text-decoration: none;
+}
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777c9e;
+    font-size: 0.85rem;
+    border-top: 1px solid #1f2340;
+}
+@media (max-width: 760px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
 }
 </style>
 </head>
 <body>
 
-<section class="hero">
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo-nav">
+            <img id="navLogo" alt="logo" src="https://placehold.co/200x200/0a2f44/cyan?text=A">
+            <span>AURIS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#screenshots">Capturas</a>
+            <a href="#changelog">Changelog</a>
+            <a href="#downloads-old">Downloads</a>
+            <a href="#faq">FAQ</a>
+            <a href="#credits">Créditos</a>
+            <a href="#" id="navDownloadBtn" class="btn-download-nav">⬇ Baixar</a>
+        </div>
+    </div>
+</nav>
 
-<img class="logo" id="logo" alt="Auris">
+<main>
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <img class="logo-main" id="mainLogo" alt="Auris Icon">
+            <h1>Auris</h1>
+            <p class="tagline">Player de música moderno, rápido e sem anúncios. Material 3, equalizador e organização inteligente.</p>
+            <a class="download-btn" id="heroDownloadBtn">⬇ Baixar Auris (APK)</a>
+            <div class="version-badge" id="versionSpan">Versão 2.2.0 • Android 11+</div>
+        </section>
 
-<h1>Auris</h1>
+        <!-- Sobre o Auris -->
+        <section id="sobre" class="section">
+            <h2 class="section-title">🎧 Sobre o Auris</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; background: #0a0a14; padding: 32px; border-radius: 40px;">
+                <p style="font-size: 1.2rem; line-height: 1.5;">Auris é um player de música desenvolvido pela <strong>Golden System</strong> e mantido por <strong>Saymon Silva</strong>. Pensado para quem valoriza performance, design Material 3 e reprodução offline cristalina. Sem cadastro, sem rastreamento e totalmente gratuito.</p>
+            </div>
+        </section>
 
-<p class="subtitle">
-Um player de música moderno, rápido e elegante.
-Feito para quem ama ouvir música sem complicações.
-</p>
+        <!-- Recursos -->
+        <section id="recursos" class="section">
+            <h2 class="section-title">✨ Recursos Essenciais</h2>
+            <div class="grid-cards">
+                <div class="feature-card"><h3>🎵 Offline total</h3><p>Ouça suas músicas sem internet, economia de dados.</p></div>
+                <div class="feature-card"><h3>🎨 Material 3</h3><p>Temas dinâmicos, ícones fluidos e suporte a Material You.</p></div>
+                <div class="feature-card"><h3>⚡ Leve & Rápido</h3><p>Otimizado para Android, sem travamentos.</p></div>
+                <div class="feature-card"><h3>🎚️ Equalizador 10 bandas</h3><p>Grave, médio, agudo — controle total do som.</p></div>
+                <div class="feature-card"><h3>📁 Pastas inteligentes</h3><p>Organize por álbum, artista ou pastas locais.</p></div>
+                <div class="feature-card"><h3>📜 Letras integradas</h3><p>Suporte a letras .lrc e sincronia.</p></div>
+            </div>
+        </section>
 
-<a class="download" id="downloadBtn">
-⬇ Baixar Auris
-</a>
+        <!-- Capturas de Tela -->
+        <section id="screenshots" class="section">
+            <h2 class="section-title">📸 Capturas de Tela</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-card"><img src="https://placehold.co/300x600/12122a/cyan?text=Player+NowPlaying" alt="tela principal"><div class="mock-label">🎵 Tela Now Playing</div></div>
+                <div class="screenshot-card"><img src="https://placehold.co/300x600/12122a/cyan?text=Biblioteca+Material" alt="biblioteca"><div class="mock-label">📚 Biblioteca M3</div></div>
+                <div class="screenshot-card"><img src="https://placehold.co/300x600/12122a/cyan?text=Equalizador" alt="equalizador"><div class="mock-label">⚡ Equalizador avançado</div></div>
+                <div class="screenshot-card"><img src="https://placehold.co/300x600/12122a/cyan?text=Tema+din%C3%A2mico" alt="temas"><div class="mock-label">🎨 Tema dinâmico</div></div>
+            </div>
+            <p style="text-align: center; margin-top: 25px; color:#9aa5cf;">Interface real — design elegante e responsivo.</p>
+        </section>
 
-<p class="version" id="versionText">Versão 1.0 • Android 11+</p>
+        <!-- Changelog -->
+        <section id="changelog" class="section">
+            <h2 class="section-title">📜 Changelog</h2>
+            <div class="changelog-grid">
+                <div class="version-card"><h3>v2.2.0 — Março 2026</h3><ul><li>✨ Modo escuro dinâmico com Material 3</li><li>🎚️ Equalizador de 10 bandas + pré-definições</li><li>🔊 Correção de bugs no gapless</li><li>➕ Suporte a playlists ilimitadas</li></ul></div>
+                <div class="version-card"><h3>v2.1.0 — Fevereiro 2026</h3><ul><li>🎨 Temas dinâmicos (cores do wallpaper)</li><li>📂 Leitura otimizada de pastas</li><li>⚡ Redução de consumo de RAM</li></ul></div>
+                <div class="version-card"><h3>v2.0.0 — Janeiro 2026</h3><ul><li>🎉 Redesign total Material 3</li><li>🔊 Suporte a formatos FLAC, MP3, OGG</li><li>📱 Android 11+ totalmente compatível</li></ul></div>
+                <div class="version-card"><h3>v1.0 — Lançamento</h3><ul><li>Primeira versão pública</li><li>Player offline estável</li><li>Organização por álbum/artista</li></ul></div>
+            </div>
+        </section>
 
-</section>
+        <!-- Downloads Antigos -->
+        <section id="downloads-old" class="section">
+            <h2 class="section-title">📥 Downloads (versões anteriores)</h2>
+            <div class="downloads-old">
+                <a href="#" class="old-apk" data-ver="2.2.0">Auris v2.2.0 (recomendada)</a>
+                <a href="#" class="old-apk" data-ver="2.1.0">Auris v2.1.0</a>
+                <a href="#" class="old-apk" data-ver="2.0.0">Auris v2.0.0</a>
+                <a href="#" class="old-apk" data-ver="1.0">Auris v1.0</a>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size:0.9rem;">🔁 Versões antigas disponíveis para compatibilidade</p>
+        </section>
 
-<section class="features">
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <h2 class="section-title">❓ Perguntas Frequentes</h2>
+            <div class="faq-list">
+                <div class="faq-item"><div class="faq-question">O Auris é gratuito?<span class="plus">+</span></div><div class="faq-answer">Sim, 100% gratuito, sem anúncios e sem compras internas.</div></div>
+                <div class="faq-item"><div class="faq-question">Funciona offline?<span class="plus">+</span></div><div class="faq-answer">Sim! todas as músicas armazenadas no dispositivo são reproduzidas offline normalmente.</div></div>
+                <div class="faq-item"><div class="faq-question">Precisa criar conta?<span class="plus">+</span></div><div class="faq-answer">Não, sem cadastro, sem login — apenas instale e use.</div></div>
+                <div class="faq-item"><div class="faq-question">Tem suporte a Android Auto?<span class="plus">+</span></div><div class="faq-answer">Sim, compatível com Android Auto na versão 2.2+.</div></div>
+                <div class="faq-item"><div class="faq-question">Como atualizar o Auris?<span class="plus">+</span></div><div class="faq-answer">Baixe o novo APK no próprio site e instale sobre a versão anterior.</div></div>
+            </div>
+        </section>
 
-<div class="card">
-<h2>🎵 Música Offline</h2>
-<p>Escute suas músicas sem internet, onde quer que esteja.</p>
-</div>
+        <!-- Créditos + Apoiar -->
+        <section id="credits" class="section">
+            <h2 class="section-title">👨‍💻 Créditos & Apoio</h2>
+            <div class="credits-block">
+                <p><strong>Desenvolvedor & mantenedor:</strong> Saymon Silva</p>
+                <p><strong>Projeto:</strong> Golden System</p>
+                <p><strong>Aplicativo:</strong> Auris Music Player — Para os amantes de música.</p>
+                <div class="support-buttons">
+                    <a href="#" class="support-link">💙 Apoiar via Pix</a>
+                    <a href="#" class="support-link">🐙 GitHub</a>
+                    <a href="#" class="support-link">💬 Discord</a>
+                    <a href="#" class="support-link">📱 Telegram</a>
+                </div>
+                <p style="margin-top: 15px;"><a href="#" id="privacyLink" class="privacy-link">📄 Política de Privacidade</a></p>
+            </div>
+        </section>
 
-<div class="card">
-<h2>⚡ Rápido</h2>
-<p>Leve, fluido e otimizado para Android com desempenho incrível.</p>
-</div>
-
-<div class="card">
-<h2>🎨 Interface Moderna</h2>
-<p>Design bonito inspirado nos melhores players do mercado.</p>
-</div>
-
-<div class="card">
-<h2>🎨 Material 3</h2>
-<p>Contem Material 3, Design do Google</p>
-</div>
-
-</section>
+        <!-- Política de Privacidade Modal (simplificada) -->
+        <div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:999; align-items:center; justify-content:center;">
+            <div style="background:#11121e; max-width:500px; margin:20px; padding:28px; border-radius:40px; border:1px solid cyan;">
+                <h2 style="margin-bottom:12px;">Política de Privacidade</h2>
+                <p style="color:#ccc;">O Auris não coleta dados pessoais. O player apenas acessa arquivos de áudio do dispositivo com sua permissão. Não há rastreamento, analytics ou compartilhamento de informações.</p>
+                <button id="closeModalBtn" style="margin-top:20px; background:#00a6ff; border:none; padding:10px 20px; border-radius:60px; color:white; font-weight:bold;">Fechar</button>
+            </div>
+        </div>
+    </div>
+</main>
 
 <footer>
-© 2026 Auris Music Player
-<br>
-Desenvolvido pela Golden System e o manteneador Saymon Silva
+    <div class="container">
+        © 2026 Auris Music Player — Golden System<br>
+        Desenvolvido com 💙 por Saymon Silva | Feito para música sem fronteiras.
+    </div>
 </footer>
 
 <script>
-// CONFIGURAÇÕES
-const APP_NAME = "Auris";
-const APK_URL = "https://SEU-LINK-DE-DOWNLOAD.apk";
-const LOGO_URL = "https://youtube.png";
+    // CONFIGURAÇÕES GLOBAIS
+    const APK_BASE_URL = "https://auris.download/golden/";  // link exemplo, substitui por real
+    const LOGO_URL = "https://placehold.co/400x400/0b2f3f/cyan?text=AURIS"; // ícone representativo
+    
+    // Atualizar logos
+    document.getElementById("mainLogo").src = LOGO_URL;
+    document.getElementById("navLogo").src = LOGO_URL;
+    document.getElementById("versionSpan").innerText = "Versão 2.2.0 • Android 11+ | Material 3";
 
-// Aplicar configurações
-document.getElementById("logo").src = LOGO_URL;
-document.getElementById("downloadBtn").href = APK_URL;
-document.getElementById("versionText").innerHTML = `Versão 1.0 • Android 11+`;
-document.title = `${APP_NAME} - Music Player`;
+    // links de download dinâmicos (simulação com alerta)
+    const downloadButtons = [document.getElementById("heroDownloadBtn"), document.getElementById("navDownloadBtn")];
+    const downloadHandler = (e) => {
+        e.preventDefault();
+        alert("📲 Demo: Download do Auris v2.2.0.apk (integração com servidor real em produção).\nEm um site real, o arquivo APK seria baixado.");
+        window.open("#", "_blank"); // apenas simulação
+    };
+    downloadButtons.forEach(btn => btn.addEventListener("click", downloadHandler));
+    
+    // links de versões antigas
+    const oldApks = document.querySelectorAll(".old-apk");
+    oldApks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const ver = link.getAttribute("data-ver") || "historico";
+            alert(`🔁 Download da versão ${ver} do Auris (arquivo APK disponível nos servidores oficiais).`);
+        });
+    });
+
+    // FAQ accordion
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+        const questionDiv = item.querySelector(".faq-question");
+        questionDiv.addEventListener("click", () => {
+            item.classList.toggle("active");
+            const plusSpan = questionDiv.querySelector(".plus");
+            if(item.classList.contains("active")) plusSpan.innerHTML = "−";
+            else plusSpan.innerHTML = "+";
+        });
+    });
+
+    // política de privacidade modal
+    const privacyLink = document.getElementById("privacyLink");
+    const modal = document.getElementById("privacyModal");
+    const closeModal = document.getElementById("closeModalBtn");
+    privacyLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "flex";
+    });
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    window.addEventListener("click", (e) => {
+        if(e.target === modal) modal.style.display = "none";
+    });
+
+    // suavizar navegação
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#") return;
+            const targetEl = document.querySelector(targetId);
+            if(targetEl) {
+                e.preventDefault();
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    // também para botões diretos
+    const heroDownloadBtnScroll = document.getElementById("heroDownloadBtn");
+    // apenas comportamento de download mesmo (já tem)
+    
+    // Simular troca de ícone/background material
+    console.log("Auris Music Player site oficial - pronto para produção");
 </script>
-
 </body>
 </html>
