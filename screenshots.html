@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auris · Capturas de Tela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0b0b14, #030308);
+            color: #f0f0f8;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(20, 22, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 3rem;
+            padding: 3rem;
+            border: 1px solid rgba(0, 224, 255, 0.1);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #00e0ff, #0077ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7c8fb0;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            color: #00e0ff;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .screenshot-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 2rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 224, 255, 0.2);
+            box-shadow: 0 20px 40px -20px #000;
+        }
+        .screenshot-card video,
+        .screenshot-card img {
+            width: 100%;
+            aspect-ratio: 9 / 19;
+            border-radius: 1.5rem;
+            object-fit: cover;
+            background: #1a1a2e;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+        }
+        .screenshot-card .label {
+            margin-top: 0.8rem;
+            color: #b0b8dd;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .screenshot-card .label i {
+            color: #00e0ff;
+            margin-right: 0.3rem;
+        }
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Centro</a>
+        <h1><i class="fas fa-camera" style="color: #00e0ff;"></i> Capturas de Tela</h1>
+        <p style="color: #b0b8dd; margin-bottom: 1.5rem;">
+            Veja o Auris em ação — interface Material 3, elegante e funcional.
+        </p>
+
+        <div class="gallery">
+            <div class="screenshot-card">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/vid/player.vid" type="video/mp4">
+                </video>
+                <div class="label"><i class="fas fa-play-circle"></i> Player de Música</div>
+            </div>
+
+            <div class="screenshot-card">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/vid/biblioteca.vid" type="video/mp4">
+                </video>
+                <div class="label"><i class="fas fa-library"></i> Biblioteca Material 3</div>
+            </div>
+
+            <div class="screenshot-card">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/vid/letras.vid" type="video/mp4">
+                </video>
+                <div class="label"><i class="fas fa-music"></i> Tela de Letras Dinâmicas</div>
+            </div>
+
+            <div class="screenshot-card">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/vid/home.vid" type="video/mp4">
+                </video>
+                <div class="label"><i class="fas fa-home"></i> Tela Inicial</div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #6a7c9a; margin-top: 2rem; font-size: 0.85rem;">
+            <i class="fas fa-mobile-alt"></i> Interface real do Auris Music Player v1.0.0
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auris · Downloads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0b0b14, #030308);
+            color: #f0f0f8;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 22, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 3rem;
+            padding: 3rem;
+            border: 1px solid rgba(0, 224, 255, 0.1);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #00e0ff, #0077ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7c8fb0;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            color: #00e0ff;
+        }
+        .download-card {
+            background: rgba(0, 224, 255, 0.05);
+            border: 1px solid rgba(0, 224, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: 0.2s;
+        }
+        .download-card:hover {
+            border-color: #00e0ff;
+            background: rgba(0, 224, 255, 0.08);
+        }
+        .download-card .version {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .download-card .meta {
+            color: #8a9cbd;
+            font-size: 0.85rem;
+            margin: 0.3rem 0 0.8rem 0;
+        }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(105deg, #00e0ff, #0077ff);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-download:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 160, 255, 0.3);
+        }
+        .badge-stable {
+            display: inline-block;
+            background: #00e0ff20;
+            color: #00e0ff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Centro</a>
+        <h1><i class="fas fa-download" style="color: #00e0ff;"></i> Downloads</h1>
+        <p style="color: #b0b8dd; margin-bottom: 1.5rem;">
+            Baixe a versão mais recente do Auris Music Player.
+        </p>
+
+        <div class="download-card">
+            <div>
+                <span class="version">v1.0.0</span>
+                <span class="badge-stable"><i class="fas fa-check-circle"></i> Estável</span>
+            </div>
+            <div class="meta">
+                <i class="fas fa-calendar"></i> 15/06/2026 · 
+                <i class="fas fa-weight"></i> 98MB · 
+                <i class="fas fa-android"></i> Android 11+
+            </div>
+            <a href="https://archive.org/download/app-universal-release_202606/Auris%20Music%20Player%20Unerversal.apk" class="btn-download" download>
+                <i class="fas fa-download"></i> Baixar APK
+            </a>
+        </div>
+
+        <div class="download-card" style="opacity: 0.5;">
+            <div>
+                <span class="version">v0.9.0</span>
+                <span class="badge-stable" style="background: #ffa50020; color: #ffa500;"><i class="fas fa-flask"></i> Beta</span>
+            </div>
+            <div class="meta">
+                <i class="fas fa-calendar"></i> 01/06/2026 · 
+                <i class="fas fa-weight"></i> 92MB · 
+                <i class="fas fa-android"></i> Android 11+
+            </div>
+            <span style="color: #6a7c9a;">Versão anterior</span>
+        </div>
+
+        <p style="color: #6a7c9a; margin-top: 1.5rem; font-size: 0.85rem;">
+            <i class="fas fa-shield-alt"></i> Todos os APKs são assinados digitalmente pela Golden System.
+        </p>
+    </div>
+</body>
+</html>

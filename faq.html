@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auris · FAQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0b0b14, #030308);
+            color: #f0f0f8;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 22, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 3rem;
+            padding: 3rem;
+            border: 1px solid rgba(0, 224, 255, 0.1);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #00e0ff, #0077ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7c8fb0;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            color: #00e0ff;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.2rem 0;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item:hover {
+            padding-left: 0.5rem;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #d6e6ff;
+            font-size: 1.05rem;
+        }
+        .faq-question .plus {
+            color: #00e0ff;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+        .faq-item.active .plus {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #b0b8dd;
+            padding-top: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-top: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Centro</a>
+        <h1><i class="fas fa-question-circle" style="color: #00e0ff;"></i> Perguntas Frequentes</h1>
+
+        <div class="faq-item active">
+            <div class="faq-question">
+                <span>❓ O Auris é gratuito?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Sim, 100% gratuito, sem anúncios e sem compras internas.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>❓ O Auris é sem anúncios?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Sim, atualmente o Auris é livre de anúncios. Como o app ainda está em desenvolvimento, formas de monetização poderão ser adicionadas no futuro para ajudar a manter e melhorar o projeto.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>❓ Funciona offline?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Sim! Todas as músicas armazenadas no dispositivo são reproduzidas offline.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>❓ Precisa criar conta?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Não, sem cadastro, sem login — apenas instale e use.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>❓ Tem suporte a Android Auto?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Sim, compatível com Android Auto na versão 1.0+.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>❓ Quais formatos são suportados?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">MP3, FLAC, OGG, WAV e mais. Qualidade de áudio cristalina.</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const q = item.querySelector('.faq-question');
+            q.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const plus = q.querySelector('.plus');
+                plus.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
