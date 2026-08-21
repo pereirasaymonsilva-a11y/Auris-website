@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auris · Sobre</title>
+
+    <meta
+        name="description"
+        content="Conheça o Auris, seu player de música offline para Android."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+    <style>
+
+        /* =========================
+           BASE
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", system-ui, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    #0b1320 0,
+                    #05070b 45%,
+                    #030407 100%
+                );
+            color: #eef3fa;
+            min-height: 100vh;
+            padding: 80px 20px 30px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 64px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 24px;
+
+            z-index: 100;
+
+            background: rgba(7, 10, 15, .82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+
+            border-radius: 8px;
+
+            object-fit: cover;
+        }
+
+        .logo span {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -.03em;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 13px;
+
+            border-radius: 9px;
+
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.07);
+
+            color: #aab5c5;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            text-decoration: none;
+
+            transition: .2s ease;
+        }
+
+        .nav-back:hover {
+            color: #fff;
+            background: rgba(255,255,255,.07);
+            border-color: rgba(0,217,255,.2);
+        }
+
+        .nav-back i {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .page-header {
+            padding: 45px 0 35px;
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            color: #00d9ff;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .page-header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1;
+
+            letter-spacing: -.055em;
+
+            font-weight: 800;
+
+            color: #f4f7fb;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(
+                100deg,
+                #00d9ff,
+                #0077ff
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .page-header p {
+            max-width: 620px;
+
+            margin-top: 13px;
+
+            color: #8995a7;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 35px 0 15px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.7fr)
+                minmax(250px, .8fr);
+
+            gap: 18px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            padding: 24px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid rgba(255,255,255,.065);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.18);
+
+            transition: .25s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0,217,255,.14);
+
+            background: rgba(255,255,255,.035);
+        }
+
+        .card + .card {
+            margin-top: 14px;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 9px;
+
+            color: #edf2f8;
+
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .card-title i {
+            width: 30px;
+            height: 30px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 8px;
+
+            background: rgba(0,217,255,.08);
+
+            color: #00d9ff;
+
+            font-size: 12px;
+        }
+
+        .card p {
+            color: #8995a7;
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: #d9f9ff;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           DEVELOPER
+        ========================= */
+
+        .developer {
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .developer-header {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d9ff,
+                    #006cff
+                );
+
+            color: white;
+
+            font-size: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(0,120,255,.2);
+        }
+
+        .developer-name {
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #f0f4f9;
+        }
+
+        .developer-role {
+            margin-top: 3px;
+
+            color: #778496;
+
+            font-size: 11px;
+        }
+
+        .developer-company {
+            margin-top: 20px;
+            padding-top: 17px;
+
+            border-top: 1px solid rgba(255,255,255,.06);
+
+            color: #7d8999;
+
+            font-size: 11px;
+        }
+
+        .developer-company i {
+            color: #00d9ff;
+            margin-right: 5px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .feature {
+            padding: 11px;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid rgba(255,255,255,.045);
+
+            color: #a5b0bf;
+
+            font-size: 10px;
+        }
+
+        .feature i {
+            color: #00d9ff;
+            margin-right: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 22px 0 5px;
+
+            border-top: 1px solid rgba(255,255,255,.06);
+
+            color: #566273;
+
+            font-size: 10px;
+        }
+
+        .footer-heart {
+            color: #ff7195;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 720px) {
+
+            body {
+                padding: 64px 14px 22px;
+            }
+
+            .navbar {
+                height: 56px;
+                padding: 0 14px;
+            }
+
+            .logo img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .logo span {
+                font-size: 15px;
+            }
+
+            .nav-back {
+                padding: 7px 10px;
+                font-size: 10px;
+            }
+
+            .page-header {
+                padding: 35px 0 28px;
+            }
+
+            .page-header p {
+                font-size: 13px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                gap: 12px;
+
+                padding-top: 25px;
+            }
+
+            .card {
+                padding: 19px;
+                border-radius: 15px;
+            }
+
+            .card p {
+                font-size: 12px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+
+        @media (max-width: 400px) {
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="home.html" class="logo">
+            <img src="icone.auris" alt="Auris">
+            <span>Auris</span>
+        </a>
+
+        <a href="home.html" class="nav-back">
+            <i class="fas fa-arrow-left"></i>
+            Voltar
+        </a>
+
+    </nav>
+
+
+    <main class="container">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div class="eyebrow">
+                <i class="fas fa-info-circle"></i>
+                Sobre o projeto
+            </div>
+
+            <h1>
+                Conheça o <span>Auris.</span>
+            </h1>
+
+            <p>
+                Um player de música desenvolvido para oferecer
+                uma experiência simples, rápida e agradável
+                para quem gosta de ouvir música offline.
+            </p>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+                <article class="card">
+
+                    <h2 class="card-title">
+                        <i class="fas fa-headphones"></i>
+                        O que é o Auris?
+                    </h2>
+
+                    <p>
+                        O <span class="highlight">Auris</span> é um
+                        player de música para Android focado em
+                        reprodução local, organização da biblioteca
+                        e uma interface moderna.
+                    </p>
+
+                    <p style="margin-top:10px;">
+                        O projeto é desenvolvido pela
+                        <span class="highlight">Golden System</span>
+                        e mantido por
+                        <span class="highlight">Saymon Silva</span>.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h2 class="card-title">
+                        <i class="fas fa-rocket"></i>
+                        Nossa missão
+                    </h2>
+
+                    <p>
+                        Criar uma experiência de música offline
+                        rápida, bonita e fácil de usar, sem
+                        transformar o aplicativo em algo complicado.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h2 class="card-title">
+                        <i class="fas fa-layer-group"></i>
+                        Tecnologias
+                    </h2>
+
+                    <p>
+                        O Auris utiliza tecnologias nativas do
+                        Android e recursos modernos como
+                        <span class="highlight">Material 3</span>,
+                        suporte a <span class="highlight">Android Auto</span>,
+                        equalizador e reprodução de diversos
+                        formatos de áudio.
+                    </p>
+
+                    <div class="features">
+
+                        <div class="feature">
+                            <i class="fas fa-palette"></i>
+                            Material 3
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-car"></i>
+                            Android Auto
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-sliders-h"></i>
+                            Equalizador
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-music"></i>
+                            Vários formatos
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <aside class="card developer">
+
+                <div class="developer-header">
+
+                    <div class="avatar">
+                        <i class="fas fa-code"></i>
+                    </div>
+
+                    <div>
+                        <div class="developer-name">
+                            Saymon Silva
+                        </div>
+
+                        <div class="developer-role">
+                            Desenvolvedor & Mantenedor
+                        </div>
+                    </div>
+
+                </div>
+
+                <p>
+                    Responsável pelo desenvolvimento e evolução
+                    do Auris.
+                </p>
+
+                <div class="developer-company">
+                    <i class="fas fa-building"></i>
+                    Golden System
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                <i class="fas fa-heart footer-heart"></i>
+                Feito para quem ama música.
+            </span>
+
+            <span>
+                Auris · 2026
+            </span>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

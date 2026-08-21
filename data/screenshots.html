@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auris · Capturas</title>
+
+    <meta
+        name="description"
+        content="Veja o Auris em ação através de capturas reais da interface."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+    <style>
+
+        /* =========================
+           BASE
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", system-ui, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 0%,
+                    rgba(0, 217, 255, .07),
+                    transparent 35%
+                ),
+                #05070a;
+
+            color: #eef2f7;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            height: 64px;
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            background: rgba(5,7,10,.82);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .navbar-inner {
+            width: min(1100px, calc(100% - 32px));
+            height: 100%;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+
+            border-radius: 9px;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            color: #8995a5;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            transition: .2s;
+        }
+
+        .back:hover {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: min(1100px, calc(100% - 32px));
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            padding: 70px 0 35px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            color: #00d9ff;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1;
+
+            letter-spacing: -.05em;
+        }
+
+        .header h1 span {
+            background: linear-gradient(
+                100deg,
+                #00e0ff,
+                #0077ff
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .header p {
+            max-width: 570px;
+
+            margin-top: 14px;
+
+            color: #8995a5;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           GALERIA
+        ========================= */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 14px;
+
+            padding-bottom: 70px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            min-width: 0;
+
+            padding: 9px;
+
+            border: 1px solid rgba(255,255,255,.07);
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,.025);
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                background .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(0,217,255,.2);
+
+            background: rgba(255,255,255,.045);
+        }
+
+
+        /* =========================
+           VIDEO
+        ========================= */
+
+        .video {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+
+            display: block;
+
+            object-fit: cover;
+
+            overflow: hidden;
+
+            border-radius: 13px;
+
+            background: #080b10;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.25);
+        }
+
+
+        /* =========================
+           CARD INFO
+        ========================= */
+
+        .card-info {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 3px 3px;
+        }
+
+        .card-icon {
+            width: 30px;
+            height: 30px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 8px;
+
+            background: rgba(0,217,255,.08);
+
+            color: #00d9ff;
+
+            font-size: 11px;
+        }
+
+        .card-info strong {
+            display: block;
+
+            color: #e8edf3;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-info span {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #707b89;
+
+            font-size: 9px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,.06);
+
+            padding: 22px 0;
+
+            color: #596575;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .gallery {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 520px) {
+
+            .container,
+            .navbar-inner {
+                width: calc(100% - 24px);
+            }
+
+            .header {
+                padding: 48px 0 28px;
+            }
+
+            .header h1 {
+                font-size: 34px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .gallery {
+                gap: 8px;
+            }
+
+            .card {
+                padding: 6px;
+                border-radius: 14px;
+            }
+
+            .video {
+                border-radius: 10px;
+            }
+
+            .card-info {
+                gap: 6px;
+                padding: 8px 1px 2px;
+            }
+
+            .card-icon {
+                width: 25px;
+                height: 25px;
+
+                border-radius: 6px;
+
+                font-size: 9px;
+            }
+
+            .card-info strong {
+                font-size: 10px;
+            }
+
+            .card-info span {
+                font-size: 8px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="navbar-inner">
+
+            <a href="home.html" class="logo">
+
+                <img
+                    src="icone.auris"
+                    alt="Auris"
+                >
+
+                <span>Auris</span>
+
+            </a>
+
+
+            <a
+                href="home.html"
+                class="back"
+            >
+
+                <i class="fas fa-arrow-left"></i>
+
+                Voltar
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <header class="header container">
+
+            <div class="eyebrow">
+
+                <i class="fas fa-camera"></i>
+
+                Interface
+
+            </div>
+
+
+            <h1>
+                Veja o Auris
+                <span>em ação.</span>
+            </h1>
+
+
+            <p>
+                Conheça algumas das principais telas do Auris
+                através de vídeos reais da interface do aplicativo.
+            </p>
+
+        </header>
+
+
+
+        <!-- GALERIA -->
+
+        <section class="container">
+
+            <div class="gallery">
+
+
+                <!-- PLAYER -->
+
+                <article class="card">
+
+                    <video
+                        class="video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="assets/vid/player.vid"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="card-info">
+
+                        <div class="card-icon">
+
+                            <i class="fas fa-play"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Player
+                            </strong>
+
+                            <span>
+                                Controle sua música
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BIBLIOTECA -->
+
+                <article class="card">
+
+                    <video
+                        class="video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="assets/vid/biblioteca.vid"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="card-info">
+
+                        <div class="card-icon">
+
+                            <i class="fas fa-book-open"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Biblioteca
+                            </strong>
+
+                            <span>
+                                Organize suas músicas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LETRAS -->
+
+                <article class="card">
+
+                    <video
+                        class="video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="assets/vid/letras.vid"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="card-info">
+
+                        <div class="card-icon">
+
+                            <i class="fas fa-music"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Letras
+                            </strong>
+
+                            <span>
+                                Acompanhe suas músicas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HOME -->
+
+                <article class="card">
+
+                    <video
+                        class="video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="assets/vid/home.vid"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="card-info">
+
+                        <div class="card-icon">
+
+                            <i class="fas fa-home"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Tela inicial
+                            </strong>
+
+                            <span>
+                                Tudo em um só lugar
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Auris Music Player · © 2026
+
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auris — Music Player</title>
+    <meta name="description" content="Auris é um player de música moderno, rápido e offline para Android.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --bg: #05070b;
+            --bg-soft: #080c12;
+            --surface: rgba(255, 255, 255, 0.035);
+            --surface-hover: rgba(255, 255, 255, 0.055);
+            --border: rgba(255, 255, 255, 0.075);
+            --text: #f5f7fb;
+            --muted: #8f9aaa;
+            --muted-2: #687384;
+            --cyan: #00d9ff;
+            --blue: #1677ff;
+            --max-width: 1120px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            min-height: 100vh;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background: radial-gradient(700px 420px at 50% -120px, rgba(0, 217, 255, 0.12), transparent 70%), radial-gradient(500px 400px at 100% 35%, rgba(22, 119, 255, 0.06), transparent 70%), linear-gradient(180deg, var(--bg), var(--bg-soft));
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px);
+            background-size: 100% 4px;
+            opacity: .12;
+            z-index: -1;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .container {
+            width: calc(100% - 48px);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 68px;
+            z-index: 1000;
+            background: rgba(5, 7, 11, 0.82);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .navbar-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+        .logo img {
+            width: 32px;
+            height: 32px;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .nav-links a {
+            color: #8c97a8;
+            font-size: 12px;
+            font-weight: 500;
+            transition: color .2s ease;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .nav-download {
+            height: 38px;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            border-radius: 10px;
+            background: linear-gradient(110deg, var(--cyan), var(--blue));
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0,160,255,.16);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .nav-download:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 30px rgba(0,160,255,.27);
+        }
+        .hero {
+            min-height: 660px;
+            padding-top: 68px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,217,255,.07), transparent 68%);
+            pointer-events: none;
+        }
+        .hero-content {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-logo {
+            width: 94px;
+            height: 94px;
+            display: block;
+            margin: 0 auto 25px;
+            border-radius: 25px;
+            box-shadow: 0 22px 55px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08);
+        }
+        .version {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 11px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255,255,255,.025);
+            color: #8e9aaa;
+            font-size: 11px;
+        }
+        .version i {
+            color: #45e68b;
+            font-size: 7px;
+        }
+        .hero h1 {
+            margin-top: 21px;
+            font-size: clamp(54px, 8vw, 84px);
+            line-height: .95;
+            letter-spacing: -.075em;
+            font-weight: 800;
+            background: linear-gradient(110deg, #ffffff 20%, #b9f6ff 55%, #2587ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-description {
+            max-width: 610px;
+            margin: 23px auto 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button {
+            min-height: 46px;
+            padding: 0 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 11px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+        .button-primary {
+            background: linear-gradient(110deg, var(--cyan), var(--blue));
+            box-shadow: 0 10px 30px rgba(0,170,255,.18);
+        }
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0,170,255,.3);
+        }
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.035);
+            color: #d6dce5;
+        }
+        .button-secondary:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,.07);
+        }
+        .button-carde {
+            border: 1px solid rgba(0,217,255,.25);
+            background: rgba(0,217,255,.06);
+            color: #b9f6ff;
+        }
+        .button-carde:hover {
+            transform: translateY(-2px);
+            background: rgba(0,217,255,.12);
+            box-shadow: 0 10px 25px rgba(0,217,255,.12);
+        }
+        .screenshots-section {
+            padding: 80px 0;
+        }
+        .screenshots-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 32px;
+        }
+        .screenshots-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 9px;
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+        .screenshots-heading h2 {
+            font-size: 36px;
+            line-height: 1.05;
+            letter-spacing: -.05em;
+        }
+        .screenshots-heading p {
+            max-width: 550px;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .screenshots-link {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: rgba(255,255,255,.03);
+            color: #cbd4df;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background .2s ease, border-color .2s ease;
+        }
+        .screenshots-link:hover {
+            background: rgba(255,255,255,.06);
+            border-color: rgba(0,217,255,.2);
+            color: #ffffff;
+        }
+        .screenshots-link i {
+            color: var(--cyan);
+        }
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .screenshot {
+            min-width: 0;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+            transition: transform .25s ease, border-color .25s ease, background .25s ease;
+        }
+        .screenshot:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,217,255,.18);
+            background: var(--surface-hover);
+        }
+        .screenshot-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #080b10;
+        }
+        .screenshot-media video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .screenshot-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,.18);
+            opacity: 0;
+            transition: opacity .2s ease;
+            pointer-events: none;
+        }
+        .screenshot:hover .screenshot-overlay {
+            opacity: 1;
+        }
+        .screenshot-overlay i {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(0,0,0,.55);
+            border: 1px solid rgba(255,255,255,.15);
+            color: #ffffff;
+            font-size: 13px;
+        }
+        .screenshot-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 4px 3px;
+        }
+        .screenshot-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            border-radius: 9px;
+            background: rgba(0,217,255,.08);
+            color: var(--cyan);
+            font-size: 12px;
+        }
+        .screenshot-info strong {
+            display: block;
+            color: #e9edf3;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .screenshot-info span {
+            display: block;
+            margin-top: 2px;
+            color: #707c8d;
+            font-size: 10px;
+        }
+        .features-section {
+            padding: 80px 0;
+        }
+        .section-heading {
+            margin-bottom: 35px;
+        }
+        .section-heading small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+        .section-heading h2 {
+            font-size: 36px;
+            line-height: 1.05;
+            letter-spacing: -.05em;
+        }
+        .section-heading p {
+            max-width: 560px;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .feature {
+            min-height: 185px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+            transition: transform .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .feature:hover {
+            transform: translateY(-3px);
+            background: var(--surface-hover);
+            border-color: rgba(0,217,255,.16);
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: rgba(0,217,255,.08);
+            color: var(--cyan);
+            font-size: 15px;
+        }
+        .feature h3 {
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+        .feature p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .download {
+            padding: 70px 0 100px;
+        }
+        .download-card {
+            padding: 38px 40px;
+            border: 1px solid rgba(0,217,255,.12);
+            border-radius: 23px;
+            background: radial-gradient(400px 180px at 90% 50%, rgba(0,217,255,.08), transparent 70%), rgba(255,255,255,.025);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .download-card h2 {
+            font-size: 25px;
+            letter-spacing: -.04em;
+        }
+        .download-card p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+        }
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .footer-left {
+            color: #788393;
+            font-size: 12px;
+        }
+        .footer-left strong {
+            color: #dce3eb;
+        }
+        .footer-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: #697485;
+            font-size: 11px;
+            transition: color .2s ease;
+        }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 16px;
+            }
+            .screenshots-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 650px) {
+            .container {
+                width: calc(100% - 28px);
+            }
+            .navbar {
+                height: 62px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-download {
+                height: 36px;
+                padding: 0 13px;
+            }
+            .hero {
+                min-height: 610px;
+                padding-top: 62px;
+            }
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+                border-radius: 21px;
+            }
+            .hero h1 {
+                font-size: 58px;
+            }
+            .hero-description {
+                font-size: 14px;
+                padding: 0 8px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-buttons .button {
+                width: 100%;
+            }
+            .screenshots-section {
+                padding: 65px 0;
+            }
+            .screenshots-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 18px;
+            }
+            .screenshots-heading h2 {
+                font-size: 29px;
+            }
+            .screenshots-heading p {
+                font-size: 13px;
+            }
+            .screenshots-link {
+                width: 100%;
+                justify-content: center;
+            }
+            .screenshots-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 9px;
+            }
+            .screenshot {
+                padding: 7px;
+                border-radius: 15px;
+            }
+            .screenshot-media {
+                border-radius: 10px;
+            }
+            .screenshot-info {
+                padding: 9px 2px 2px;
+                gap: 7px;
+            }
+            .screenshot-icon {
+                width: 27px;
+                height: 27px;
+                border-radius: 7px;
+                font-size: 10px;
+            }
+            .screenshot-info strong {
+                font-size: 10px;
+            }
+            .screenshot-info span {
+                font-size: 8px;
+            }
+            .features-section {
+                padding: 60px 0;
+            }
+            .section-heading h2 {
+                font-size: 30px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature {
+                min-height: auto;
+            }
+            .download-card {
+                padding: 28px 22px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .download-card .button {
+                width: 100%;
+            }
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        * {
+            max-width: 100%;
+        }
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img, video {
+            max-width: 100%;
+        }
+        .screenshots-grid, .features-grid {
+            width: 100%;
+            min-width: 0;
+        }
+        .screenshot, .feature {
+            min-width: 0;
+            width: 100%;
+        }
+        .screenshot-media {
+            width: 100%;
+            min-width: 0;
+            overflow: hidden;
+        }
+        .screenshot-media video {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 650px) {
+            .container {
+                width: calc(100% - 24px);
+                max-width: calc(100% - 24px);
+            }
+            .screenshots-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 100%;
+            }
+            .features-grid {
+                grid-template-columns: minmax(0, 1fr);
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="home.html" class="logo">
+                <img src="icone.auris" alt="Auris">
+                <span>Auris</span>
+            </a>
+            <div class="nav-links">
+                <a href="#capturas">Capturas</a>
+                <a href="#recursos">Recursos</a>
+                <a href="downloads.html">Downloads</a>
+                <a href="beta.html">Beta</a>
+                <a href="data/changelog.html">Changelog</a>
+                <a href="support.html">Suporte</a>
+            </div>
+            <a class="nav-download" href="https://github.com/pereirasaymonsilva-a11y/Auris/releases/download/v1.0.1/app-universal-release.apk" download>
+                <i class="fas fa-download"></i>
+                Baixar
+            </a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="icone.auris" alt="Auris" class="hero-logo">
+            <div class="version">
+                <i class="fas fa-circle"></i>
+                Versão 1.0.1 · Android 11+
+            </div>
+            <h1>Auris</h1>
+            <p class="hero-description">
+                Um player de música moderno, rápido e feito para funcionar do seu jeito.
+                <br>
+                Sua música. Sua biblioteca. Seu controle.
+            </p>
+            <div class="hero-buttons">
+                <a class="button button-primary" href="https://github.com/pereirasaymonsilva-a11y/Auris/releases/download/v1.0.1/app-universal-release.apk" download>
+                    <i class="fas fa-download"></i>
+                    Baixar Auris APK
+                </a>
+                <a class="button button-secondary" href="beta.html">
+                    <i class="fas fa-flask"></i>
+                    Programa Beta
+                </a>
+                <a class="button button-carde" href="home.html">
+                    <i class="fas fa-info-circle"></i>
+                    Sobre o Auris
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="screenshots-section" id="capturas">
+        <div class="container">
+            <div class="screenshots-heading">
+                <div>
+                    <span class="screenshots-label">
+                        <i class="fas fa-camera"></i>
+                        Interface
+                    </span>
+                    <h2>Veja o Auris em ação.</h2>
+                    <p>Uma interface pensada para deixar sua música organizada, acessível e bonita.</p>
+                </div>
+                <a href="screenshots.html" class="screenshots-link">
+                    Ver todas
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="screenshots-grid">
+                <a href="screenshots.html" class="screenshot">
+                    <div class="screenshot-media">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/vid/player.vid" type="video/mp4">
+                        </video>
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <div class="screenshot-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div>
+                            <strong>Player</strong>
+                            <span>Controle sua música</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="screenshots.html" class="screenshot">
+                    <div class="screenshot-media">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/vid/biblioteca.vid" type="video/mp4">
+                        </video>
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <div class="screenshot-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div>
+                            <strong>Biblioteca</strong>
+                            <span>Organize suas músicas</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="screenshots.html" class="screenshot">
+                    <div class="screenshot-media">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/vid/letras.vid" type="video/mp4">
+                        </video>
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-music"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <div class="screenshot-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div>
+                            <strong>Letras</strong>
+                            <span>Acompanhe suas músicas</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="screenshots.html" class="screenshot">
+                    <div class="screenshot-media">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/vid/home.vid" type="video/mp4">
+                        </video>
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <div class="screenshot-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div>
+                            <strong>Tela inicial</strong>
+                            <span>Tudo em um só lugar</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="features-section" id="recursos">
+        <div class="container">
+            <div class="section-heading">
+                <small>Recursos</small>
+                <h2>Tudo no lugar certo.</h2>
+                <p>Recursos pensados para deixar sua experiência musical simples e completa.</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi-slash"></i>
+                    </div>
+                    <h3>Reprodução offline</h3>
+                    <p>Ouça suas músicas sem precisar de uma conexão com a internet.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Material 3</h3>
+                    <p>Interface moderna seguindo a linguagem visual do Android.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders"></i>
+                    </div>
+                    <h3>Equalizador</h3>
+                    <p>Personalize o áudio e encontre o som que combina com você.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <h3>Letras sincronizadas</h3>
+                    <p>Acompanhe suas músicas com suporte a letras sincronizadas.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3>Biblioteca inteligente</h3>
+                    <p>Organize suas músicas, artistas, álbuns e playlists.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Android Auto</h3>
+                    <p>Tenha acesso às suas músicas também durante suas viagens.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="download">
+        <div class="container">
+            <div class="download-card">
+                <div>
+                    <h2>Baixe o Auris.</h2>
+                    <p>Versão 1.0.1 · Android 11 ou superior</p>
+                </div>
+                <a class="button button-primary" href="https://github.com/pereirasaymonsilva-a11y/Auris/releases/download/v1.0.1/app-universal-release.apk" download>
+                    <i class="fas fa-download"></i>
+                    Baixar APK
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container footer">
+            <div class="footer-left">
+                <strong>Auris</strong>
+                · Golden System · 2026
+            </div>
+            <div class="footer-links">
+                <a href="downloads.html">Downloads</a>
+                <a href="beta.html">Beta</a>
+                <a href="data/changelog.html">Changelog</a>
+                <a href="screenshots.html">Capturas</a>
+                <a href="support.html">Suporte</a>
+                <a href="privacidade.html">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

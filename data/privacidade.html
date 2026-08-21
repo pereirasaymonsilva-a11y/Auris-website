@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Auris · Política de Privacidade</title>
+    <meta name="description" content="Política de Privacidade do Auris Music Player.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #030308;
+            --text: #f0f0f8;
+            --muted: #9aa9c5;
+            --muted-2: #71819f;
+            --cyan: #00e0ff;
+            --blue: #0077ff;
+            --card: rgba(20, 22, 36, 0.62);
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0, 224, 255, 0.055),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(0, 119, 255, 0.045),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* TOPO */
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #f0f4ff;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            object-fit: cover;
+            box-shadow: 0 0 18px rgba(0, 224, 255, 0.15);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--muted);
+            text-decoration: none;
+
+            font-size: 0.85rem;
+            font-weight: 500;
+
+            padding: 9px 15px;
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid var(--border);
+
+            transition: 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+            border-color: rgba(0, 224, 255, 0.25);
+            background: rgba(0, 224, 255, 0.06);
+            transform: translateY(-1px);
+        }
+
+        /* CABEÇALHO */
+
+        .hero {
+            background: var(--card);
+            border: 1px solid rgba(0, 224, 255, 0.08);
+            border-radius: 32px;
+
+            padding: 42px 42px 34px;
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        .icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: rgba(0, 224, 255, 0.08);
+            border: 1px solid rgba(0, 224, 255, 0.12);
+
+            color: var(--cyan);
+            font-size: 1.35rem;
+
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+
+            background: linear-gradient(
+                105deg,
+                #ffffff,
+                #b7f2ff
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            margin-bottom: 14px;
+        }
+
+        .intro {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 680px;
+        }
+
+        .updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 22px;
+
+            color: var(--muted-2);
+            font-size: 0.78rem;
+
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+
+            padding: 7px 12px;
+            border-radius: 50px;
+        }
+
+        .updated i {
+            color: var(--cyan);
+        }
+
+        /* CONTEÚDO */
+
+        .content {
+            margin-top: 18px;
+
+            background: rgba(15, 17, 28, 0.58);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+
+            padding: 12px 32px;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .privacy-section {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+        }
+
+        .privacy-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-number {
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 9px;
+
+            background: rgba(0, 224, 255, 0.07);
+            color: var(--cyan);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #e8efff;
+            font-size: 1.05rem;
+            font-weight: 650;
+            letter-spacing: -0.015em;
+        }
+
+        .privacy-section p {
+            color: #9eabc7;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            padding-left: 42px;
+        }
+
+        strong {
+            color: #dce8ff;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: var(--cyan);
+        }
+
+        /* CONTATO */
+
+        .contact {
+            margin-top: 18px;
+
+            padding: 22px 25px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 224, 255, 0.055),
+                    rgba(0, 119, 255, 0.035)
+                );
+
+            border: 1px solid rgba(0, 224, 255, 0.08);
+        }
+
+        .contact-title {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            color: #e8f4ff;
+            font-size: 0.95rem;
+            font-weight: 650;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-title i {
+            color: var(--cyan);
+        }
+
+        .contact p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 8px;
+
+            color: var(--cyan);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: 25px;
+            padding: 20px 4px;
+
+            color: #596985;
+            font-size: 0.75rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .footer-brand img {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 14px;
+            }
+
+            .topbar {
+                margin-bottom: 18px;
+            }
+
+            .brand span {
+                display: none;
+            }
+
+            .hero {
+                padding: 30px 24px 26px;
+                border-radius: 26px;
+            }
+
+            .icon {
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .intro {
+                font-size: 0.9rem;
+            }
+
+            .content {
+                padding: 8px 20px;
+                border-radius: 24px;
+            }
+
+            .privacy-section {
+                padding: 22px 0;
+            }
+
+            .privacy-section p {
+                padding-left: 0;
+                margin-top: 10px;
+                font-size: 0.86rem;
+            }
+
+            .section-heading {
+                gap: 10px;
+            }
+
+            .contact {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- TOPO -->
+
+    <div class="topbar">
+
+        <a href="home.html" class="brand">
+            <img src="icone.auris" alt="Auris">
+            <span>Auris</span>
+        </a>
+
+        <a href="home.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Voltar
+        </a>
+
+    </div>
+
+
+    <!-- CABEÇALHO -->
+
+    <header class="hero">
+
+        <div class="icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <h1>Política de Privacidade</h1>
+
+        <p class="intro">
+            A privacidade dos usuários é uma parte importante do Auris.
+            Esta página explica quais informações são utilizadas pelo
+            aplicativo e como elas são tratadas.
+        </p>
+
+        <div class="updated">
+            <i class="fas fa-clock"></i>
+            Última atualização · Agosto de 2026
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="content">
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">01</div>
+                <h2>Coleta de dados</h2>
+            </div>
+
+            <p>
+                O Auris não coleta dados pessoais dos usuários para fins
+                de rastreamento ou criação de perfis. O aplicativo não
+                exige cadastro ou login para ser utilizado.
+            </p>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">02</div>
+                <h2>Permissões do aplicativo</h2>
+            </div>
+
+            <p>
+                O Auris pode solicitar permissões necessárias para acessar
+                os arquivos de áudio armazenados no dispositivo. Essas
+                permissões são utilizadas para localizar e reproduzir
+                músicas disponíveis localmente.
+            </p>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">03</div>
+                <h2>Arquivos e músicas</h2>
+            </div>
+
+            <p>
+                Os arquivos de música encontrados no dispositivo são
+                processados localmente pelo aplicativo. O Auris não envia
+                automaticamente esses arquivos para servidores externos.
+            </p>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">04</div>
+                <h2>Dados de uso</h2>
+            </div>
+
+            <p>
+                O Auris não utiliza dados de uso para rastrear
+                individualmente os usuários. Informações pessoais não são
+                utilizadas para criar perfis de publicidade.
+            </p>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">05</div>
+                <h2>Compartilhamento de informações</h2>
+            </div>
+
+            <p>
+                O Auris não vende ou compartilha informações pessoais dos
+                usuários com terceiros para fins comerciais.
+            </p>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <div class="section-heading">
+                <div class="section-number">06</div>
+                <h2>Segurança</h2>
+            </div>
+
+            <p>
+                O processamento relacionado à reprodução e organização das
+                músicas ocorre localmente sempre que possível. Recomendamos
+                manter o Android e o aplicativo atualizados para obter as
+                correções de segurança disponíveis.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- CONTATO -->
+
+    <section class="contact">
+
+        <div class="contact-title">
+            <i class="fas fa-envelope"></i>
+            Dúvidas sobre privacidade?
+        </div>
+
+        <p>
+            Caso tenha alguma dúvida ou queira entrar em contato sobre
+            esta política, envie uma mensagem para:
+        </p>
+
+        <a
+            href="support.html"
+            class="email"
+        >
+            aurismusicpayer@gmail.com
+        </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div class="footer-brand">
+            <img src="icone.auris" alt="Auris">
+            <span>Auris Music Player · Golden System</span>
+        </div>
+
+        <span>
+            © 2026 · Desenvolvido por Saymon Silva
+        </span>
+
+    </footer>
+
+</div>
+
+</body>
+</html>

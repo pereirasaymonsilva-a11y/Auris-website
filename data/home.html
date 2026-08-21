@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Auris</title>
+
+    <meta
+        name="description"
+        content="Centro oficial do Auris Music Player."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Inter", system-ui, sans-serif;
+
+            color: #eef4ff;
+
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(0, 224, 255, .08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 90%,
+                    rgba(0, 119, 255, .07),
+                    transparent 35%
+                ),
+                #05070b;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 32px;
+
+            z-index: 100;
+
+            background: rgba(5, 7, 11, .78);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+
+            border-radius: 9px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: #8492a8;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            transition: .2s;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+
+        .nav .active {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: min(1000px, calc(100% - 32px));
+
+            margin: 0 auto;
+
+            padding:
+                130px 0 60px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+
+            padding: 40px 20px 70px;
+        }
+
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 27px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45),
+                0 0 0 1px rgba(0,224,255,.15);
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 64px);
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -.05em;
+        }
+
+        .hero h1 span {
+            background:
+                linear-gradient(
+                    100deg,
+                    #00e0ff,
+                    #0077ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 570px;
+
+            margin: 18px auto 0;
+
+            color: #8996aa;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           NAVEGAÇÃO
+        ========================= */
+
+        .navigation {
+            margin-top: 10px;
+        }
+
+        .section-title {
+            margin-bottom: 16px;
+
+            color: #68768b;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .14em;
+        }
+
+        .navigation-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+        .navigation-card {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 17px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.065);
+
+            transition:
+                transform .2s,
+                background .2s,
+                border-color .2s;
+        }
+
+        .navigation-card:hover {
+            transform: translateY(-3px);
+
+            background:
+                rgba(255,255,255,.045);
+
+            border-color:
+                rgba(0,217,255,.18);
+        }
+
+        .navigation-icon {
+            width: 40px;
+            height: 40px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(0,217,255,.07);
+
+            color: #00d9ff;
+
+            font-size: 14px;
+        }
+
+        .navigation-info {
+            min-width: 0;
+        }
+
+        .navigation-info strong {
+            display: block;
+
+            color: #e7edf7;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .navigation-info span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #68768b;
+
+            font-size: 10px;
+        }
+
+        .navigation-arrow {
+            margin-left: auto;
+
+            color: #526074;
+
+            font-size: 11px;
+
+            transition: .2s;
+        }
+
+        .navigation-card:hover .navigation-arrow {
+            color: #00d9ff;
+            transform: translateX(3px);
+        }
+
+
+        /* =========================
+           NOVIDADES
+        ========================= */
+
+        .news {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-top: 55px;
+
+            padding: 24px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(0,217,255,.055),
+                    rgba(0,119,255,.025)
+                );
+
+            border:
+                1px solid rgba(0,217,255,.09);
+        }
+
+        .news-label {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 7px;
+
+            color: #00d9ff;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+        .news h2 {
+            font-size: 17px;
+
+            font-weight: 700;
+        }
+
+        .news p {
+            margin-top: 5px;
+
+            color: #77869b;
+
+            font-size: 11px;
+        }
+
+        .news-link {
+            flex-shrink: 0;
+
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 14px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            color: #b9c5d8;
+
+            font-size: 11px;
+
+            transition: .2s;
+        }
+
+        .news-link:hover {
+            color: #fff;
+
+            border-color:
+                rgba(0,217,255,.2);
+
+            background:
+                rgba(0,217,255,.05);
+        }
+
+        .news-link i {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-top: 70px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+
+            color: #526074;
+
+            font-size: 10px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .footer-brand img {
+            width: 22px;
+            height: 22px;
+
+            border-radius: 6px;
+
+            opacity: .7;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .footer-links a {
+            transition: .2s;
+        }
+
+        .footer-links a:hover {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav {
+                gap: 15px;
+            }
+
+            .nav a:nth-child(n+4) {
+                display: none;
+            }
+
+            .navigation-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 550px) {
+
+            .navbar {
+                height: 62px;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            main {
+                width: min(
+                    100% - 24px,
+                    500px
+                );
+
+                padding-top: 100px;
+            }
+
+            .hero {
+                padding:
+                    25px 10px 55px;
+            }
+
+            .hero-logo {
+                width: 82px;
+                height: 82px;
+
+                border-radius: 22px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .navigation-grid {
+                grid-template-columns: 1fr;
+
+                gap: 9px;
+            }
+
+            .navigation-card {
+                padding: 14px;
+            }
+
+            .news {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                padding: 20px;
+            }
+
+            .news-link {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            footer {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="icone.auris" alt="Auris">
+            <span>Auris</span>
+        </a>
+
+        <div class="nav">
+
+            <a href="index.html" class="active">
+                Início
+            </a>
+
+            <a href="screenshots.html">
+                Capturas
+            </a>
+
+            <a href="downloads.html">
+                Downloads
+            </a>
+
+            <a href="beta.html">
+                Beta
+            </a>
+
+            <a href="changelog.html">
+                Changelog
+            </a>
+
+            <a href="support.html">
+                Suporte
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <img
+                src="icone.auris"
+                class="hero-logo"
+                alt="Auris"
+            >
+
+            <h1>
+                
+                <span>Auris</span>
+            </h1>
+
+            <p>
+                Site oficial do Auris Music Player.
+                Acesse rapidamente informações, versões,
+                capturas, novidades e suporte.
+            </p>
+
+        </section>
+
+
+        <!-- NAVEGAÇÃO -->
+
+        <section class="navigation">
+
+            <div class="section-title">
+                <i class="fas fa-compass"></i>
+                Navegação
+            </div>
+
+
+            <div class="navigation-grid">
+
+
+                <a
+                    href="screenshots.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Capturas
+                        </strong>
+
+                        <span>
+                            Veja o Auris em ação
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="downloads.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Downloads
+                        </strong>
+
+                        <span>
+                            Baixe o Auris
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="beta.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Programa Beta
+                        </strong>
+
+                        <span>
+                            Teste novas versões
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="changelog.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-clock-rotate-left"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Changelog
+                        </strong>
+
+                        <span>
+                            Histórico de versões
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="about.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-circle-info"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Sobre o Auris
+                        </strong>
+
+                        <span>
+                            Conheça o projeto
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="support.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Suporte
+                        </strong>
+
+                        <span>
+                            Ajuda e contato
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="faq.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-circle-question"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            FAQ
+                        </strong>
+
+                        <span>
+                            Perguntas frequentes
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="privacidade.html"
+                    class="navigation-card"
+                >
+
+                    <div class="navigation-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+
+                    <div class="navigation-info">
+
+                        <strong>
+                            Privacidade
+                        </strong>
+
+                        <span>
+                            Política de privacidade
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right navigation-arrow"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOVIDADES -->
+
+        <section class="news">
+
+            <div>
+
+                <div class="news-label">
+                    <i class="fas fa-bolt"></i>
+                    Novidades
+                </div>
+
+                <h2>
+                    Auris v1.0.1
+                </h2>
+
+                <p>
+                    Lançamento oficial da versão estável.
+                </p>
+
+            </div>
+
+            <a
+                href="changelog.html"
+                class="news-link"
+            >
+                Ver Changelog
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div class="footer-brand">
+
+                <img
+                    src="icone.auris"
+                    alt="Auris"
+                >
+
+                <span>
+                    Golden System · Auris
+                </span>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="about.html">
+                    Sobre
+                </a>
+
+                <a href="privacidade.html">
+                    Privacidade
+                </a>
+
+                <a href="support.html">
+                    Suporte
+                </a>
+
+                <a href="changelog.html">
+                    Changelog
+                </a>
+
+            </div>
+
+
+            <span>
+                © 2026
+            </span>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

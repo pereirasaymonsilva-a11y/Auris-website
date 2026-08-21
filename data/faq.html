@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Auris · FAQ</title>
+
+    <meta
+        name="description"
+        content="Perguntas frequentes sobre o Auris Music Player."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #030308;
+            --panel: rgba(18, 21, 32, 0.72);
+            --panel-hover: rgba(25, 30, 44, 0.9);
+            --text: #f0f4ff;
+            --muted: #9aa9c4;
+            --muted-2: #6f7f9d;
+            --cyan: #00e0ff;
+            --blue: #0077ff;
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0, 119, 255, 0.08),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(0, 224, 255, 0.05),
+                    transparent 30%
+                ),
+                var(--bg);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            height: 72px;
+            padding: 0 2.5rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(7, 9, 15, 0.78);
+            backdrop-filter: blur(18px) saturate(1.3);
+            -webkit-backdrop-filter: blur(18px) saturate(1.3);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo img {
+            width: 34px;
+            height: 34px;
+            object-fit: cover;
+            border-radius: 9px;
+            filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.2));
+        }
+
+        .logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #9eacc7;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #edf4ff;
+            border-bottom-color: var(--cyan);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+
+            padding: 0.45rem 1rem;
+
+            border-radius: 50px;
+            border: 1px solid var(--border);
+
+            background: rgba(255, 255, 255, 0.04);
+
+            color: #d4def3;
+            text-decoration: none;
+
+            font-size: 0.8rem;
+            font-weight: 500;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 224, 255, 0.08);
+            border-color: rgba(0, 224, 255, 0.2);
+        }
+
+        .nav-btn-primary {
+            border: none;
+            color: white;
+            font-weight: 600;
+
+            background: linear-gradient(
+                105deg,
+                var(--cyan),
+                var(--blue)
+            );
+
+            box-shadow: 0 5px 18px rgba(0, 160, 255, 0.25);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 3.5rem 0 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .page-icon {
+            width: 64px;
+            height: 64px;
+
+            margin: 0 auto 1.2rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 224, 255, 0.14),
+                    rgba(0, 119, 255, 0.08)
+                );
+
+            border: 1px solid rgba(0, 224, 255, 0.12);
+
+            color: var(--cyan);
+            font-size: 1.6rem;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35),
+                0 0 30px rgba(0, 224, 255, 0.06);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.2rem, 6vw, 3.3rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+
+            background: linear-gradient(
+                105deg,
+                #ffffff,
+                #b8efff
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            max-width: 600px;
+            margin: 0.7rem auto 0;
+
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            margin-bottom: 2rem;
+
+            color: var(--muted-2);
+            text-decoration: none;
+
+            font-size: 0.85rem;
+            font-weight: 500;
+
+            transition: 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--cyan);
+            transform: translateX(-2px);
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .faq-item {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 1.4rem;
+
+            background: var(--panel);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 224, 255, 0.13);
+        }
+
+        .faq-item.active {
+            background: var(--panel-hover);
+            border-color: rgba(0, 224, 255, 0.18);
+        }
+
+        .faq-question {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+            padding: 1.25rem 1.35rem;
+
+            border: none;
+            background: transparent;
+
+            color: #e7efff;
+
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .question-content {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .question-icon {
+            width: 32px;
+            height: 32px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: rgba(0, 224, 255, 0.07);
+            color: var(--cyan);
+
+            font-size: 0.8rem;
+        }
+
+        .plus {
+            width: 28px;
+            height: 28px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--cyan);
+
+            font-size: 1rem;
+
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .plus {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+
+            transition:
+                grid-template-rows 0.3s ease,
+                padding 0.3s ease;
+
+            padding: 0 1.35rem;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            grid-template-rows: 1fr;
+            padding-bottom: 1.25rem;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .help-box {
+            margin-top: 2.5rem;
+
+            padding: 1.5rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+
+            border-radius: 1.7rem;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 224, 255, 0.06),
+                    rgba(0, 119, 255, 0.04)
+                );
+
+            border: 1px solid rgba(0, 224, 255, 0.1);
+        }
+
+        .help-box h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .help-box p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .help-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            flex-shrink: 0;
+
+            padding: 0.7rem 1.2rem;
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            color: #dce7ff;
+            text-decoration: none;
+
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .help-btn:hover {
+            background: rgba(0, 224, 255, 0.08);
+            border-color: rgba(0, 224, 255, 0.2);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+
+            padding: 1.5rem 0 2rem;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+            text-align: center;
+
+            color: #53627c;
+            font-size: 0.75rem;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 820px) {
+            .navbar {
+                padding: 0 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-btn:not(.nav-btn-primary) {
+                display: none;
+            }
+
+            .page {
+                padding-top: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                height: 64px;
+            }
+
+            .logo img {
+                width: 29px;
+                height: 29px;
+            }
+
+            .logo span {
+                font-size: 1.05rem;
+            }
+
+            .page {
+                width: min(100% - 24px, 900px);
+                padding-top: 2rem;
+            }
+
+            .page-header {
+                margin-bottom: 2rem;
+            }
+
+            .page-header p {
+                font-size: 0.85rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.86rem;
+            }
+
+            .question-icon {
+                width: 29px;
+                height: 29px;
+            }
+
+            .faq-answer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding-bottom: 1rem;
+            }
+
+            .help-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .help-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-left">
+
+            <a href="home.html" class="logo">
+                <img src="icone.auris" alt="Auris">
+                <span>Auris</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="beta.html">Beta</a></li>
+                <li><a href="data/changelog.html">Changelog</a></li>
+                <li><a href="support.html">Suporte</a></li>
+            </ul>
+
+        </div>
+
+        <div class="nav-right">
+
+            <a href="beta.html" class="nav-btn">
+                <i class="fas fa-flask"></i>
+                Beta
+            </a>
+
+            <a
+                href="https://archive.org/download/app-universal-release_202606/Auris%20Music%20Player%20Unerversal.apk"
+                class="nav-btn nav-btn-primary"
+                download
+            >
+                <i class="fas fa-download"></i>
+                Baixar
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTEÚDO -->
+    <main class="page">
+
+        <a href="home.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Centro
+        </a>
+
+        <header class="page-header">
+
+            <div class="page-icon">
+                <i class="fas fa-question"></i>
+            </div>
+
+            <h1>Perguntas Frequentes</h1>
+
+            <p>
+                Encontre respostas para as principais dúvidas sobre
+                o Auris Music Player.
+            </p>
+
+        </header>
+
+
+        <!-- FAQ -->
+        <section class="faq">
+
+            <article class="faq-item active">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-gift"></i>
+                        </span>
+
+                        O Auris é gratuito?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Sim. Atualmente o Auris é 100% gratuito,
+                        sem anúncios e sem compras internas.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-ban"></i>
+                        </span>
+
+                        O Auris possui anúncios?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Não. Atualmente o Auris não possui anúncios.
+                        No futuro, formas de monetização poderão ser
+                        adicionadas para ajudar na manutenção e evolução
+                        do projeto.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+
+                        O Auris funciona offline?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Sim. As músicas armazenadas no dispositivo podem
+                        ser reproduzidas sem conexão com a internet.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-user"></i>
+                        </span>
+
+                        Preciso criar uma conta?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Não. O Auris pode ser utilizado sem cadastro
+                        ou login.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-car"></i>
+                        </span>
+
+                        O Auris possui suporte ao Android Auto?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Sim. O Auris possui compatibilidade com
+                        Android Auto.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="question-content">
+                        <span class="question-icon">
+                            <i class="fas fa-music"></i>
+                        </span>
+
+                        Quais formatos de áudio são suportados?
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        O Auris oferece suporte a formatos como MP3,
+                        FLAC, OGG e WAV, além de outros formatos
+                        compatíveis com o sistema Android.
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- AJUDA -->
+        <section class="help-box">
+
+            <div>
+                <h3>Não encontrou sua resposta?</h3>
+
+                <p>
+                    Entre em contato com o suporte do Auris.
+                </p>
+            </div>
+
+            <a href="support.html" class="help-btn">
+                <i class="fas fa-headset"></i>
+                Falar com o suporte
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Auris Music Player · Golden System
+    </footer>
+
+
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach(item => {
+
+            const button = item.querySelector(".faq-question");
+
+            button.addEventListener("click", () => {
+
+                const wasActive = item.classList.contains("active");
+
+                faqItems.forEach(other => {
+                    other.classList.remove("active");
+
+                    const plus = other.querySelector(".plus");
+                    plus.textContent = "+";
+                });
+
+                if (!wasActive) {
+                    item.classList.add("active");
+
+                    const plus = item.querySelector(".plus");
+                    plus.textContent = "−";
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
