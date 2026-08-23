@@ -1,0 +1,8 @@
+{
+  "name": "auris-support-api",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "resend": "^6.0.0"
+  }
+}
