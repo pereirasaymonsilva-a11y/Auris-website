@@ -558,6 +558,162 @@
         .footer-links a:hover {
             color: #d0dcff;
         }
+        /* ================= EM DESENVOLVIMENTO ================= */
+
+.version-card.development {
+    border-color: rgba(0,224,255,.16);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,224,255,.045),
+            rgba(20,22,36,.68)
+        );
+
+    overflow: hidden;
+}
+
+.development-header {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    margin-bottom: 1.2rem;
+
+    padding-bottom: 1rem;
+
+    border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.development-icon {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(0,224,255,.07);
+
+    border: 1px solid rgba(0,224,255,.12);
+
+    color: var(--cyan);
+
+    overflow: hidden;
+}
+
+/* Marreta */
+.hammer {
+    font-size: 1.8rem;
+
+    transform-origin: 75% 75%;
+
+    animation: hammer-work 1.2s ease-in-out infinite;
+}
+
+/* Pequenas faíscas */
+.hammer-spark {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    opacity: 0;
+
+    animation: spark 1.2s ease-out infinite;
+}
+
+.hammer-spark:nth-child(2) {
+    top: 14px;
+    right: 11px;
+}
+
+.hammer-spark:nth-child(3) {
+    top: 25px;
+    right: 6px;
+
+    animation-delay: .15s;
+}
+
+.hammer-spark:nth-child(4) {
+    top: 8px;
+    left: 14px;
+
+    animation-delay: .3s;
+}
+
+@keyframes hammer-work {
+
+    0% {
+        transform: rotate(-35deg);
+    }
+
+    35% {
+        transform: rotate(18deg);
+    }
+
+    45% {
+        transform: rotate(5deg);
+    }
+
+    55% {
+        transform: rotate(18deg);
+    }
+
+    100% {
+        transform: rotate(-35deg);
+    }
+}
+
+@keyframes spark {
+
+    0% {
+        transform: scale(.4);
+        opacity: 0;
+    }
+
+    35% {
+        transform: translate(4px, -5px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(10px, -12px) scale(.2);
+        opacity: 0;
+    }
+}
+
+.development-text {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.development-label {
+    color: var(--cyan);
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+}
+
+.development-subtitle {
+    color: #8393b0;
+
+    font-size: .75rem;
+}
 
 
         /* ================= RESPONSIVO ================= */
@@ -769,6 +925,100 @@
         <h2 class="section-title">
             Versões do Auris
         </h2>
+        
+        <!-- v1.0.2 EM DESENVOLVIMENTO -->
+
+<article class="version-card development">
+
+    <div class="development-header">
+
+        <div class="development-icon">
+
+            <i class="fas fa-hammer hammer"></i>
+
+            <span class="hammer-spark"></span>
+            <span class="hammer-spark"></span>
+            <span class="hammer-spark"></span>
+
+        </div>
+
+        <div class="development-text">
+
+            <span class="development-label">
+                Em desenvolvimento
+            </span>
+
+            <span class="development-subtitle">
+                Novidades estão sendo construídas
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="version-top">
+
+        <div class="version-info">
+
+            <span class="version">
+                v1.0.2
+            </span>
+
+            <span class="badge badge-beta">
+                <i class="fas fa-code"></i>
+                Em desenvolvimento
+            </span>
+
+        </div>
+
+        <div class="date">
+
+            <i class="fas fa-hammer"></i>
+
+            Em construção
+
+        </div>
+
+    </div>
+
+
+    <p class="version-description">
+        Próxima versão do Auris. Novos recursos e melhorias
+        estão sendo desenvolvidos.
+    </p>
+
+
+    <ul class="changes">
+
+        <li>
+            <i class="fas fa-hammer"></i>
+            Novo sistema de suporte e contato
+        </li>
+
+        <li>
+            <i class="fas fa-hammer"></i>
+            Melhoria no tema personalizado
+        </li>
+
+        <li>
+            <i class="fas fa-hammer"></i>
+            Sistema de IA Avançado na Home Screen
+        </li>
+
+        <li>
+            <i class="fas fa-hammer"></i>
+            Malhorando Sistema de nuvens
+        </li>
+
+        <li>
+            <i class="fas fa-hammer"></i>
+            Adição da AurisAccount
+        </li>
+
+    </ul>
+
+</article>
         
         <!-- 1.0.1.2 -->
         
