@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Auris 1.0.2 — Novidades</title>
+
+    <meta
+        name="description"
+        content="Confira todas as novidades, melhorias e recursos do Auris 1.0.2."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #070707;
+            --bg-secondary: #0d0d0d;
+            --card: #111111;
+            --card-hover: #161616;
+            --border: rgba(255,255,255,0.08);
+            --text: #ffffff;
+            --text-secondary: #a8a8a8;
+            --text-muted: #707070;
+            --accent: #ffffff;
+            --accent-dark: #d8d8d8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(255,255,255,0.07),
+                    transparent 35%
+                ),
+                var(--bg);
+            color: var(--text);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.7;
+        }
+
+        ::selection {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .container {
+            width: min(100% - 32px, 1000px);
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 90px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.035);
+            filter: blur(80px);
+            top: -220px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .version {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-bottom: 22px;
+            backdrop-filter: blur(12px);
+        }
+
+        .version-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 12px rgba(255,255,255,0.7);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 10vw, 92px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #888;
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin: auto;
+            color: var(--text-secondary);
+            font-size: clamp(17px, 3vw, 21px);
+        }
+
+        /* INTRO */
+
+        .intro {
+            max-width: 780px;
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+
+        .intro p {
+            color: var(--text-secondary);
+            font-size: 17px;
+        }
+
+        .notice {
+            margin-top: 28px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.035);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* SECTIONS */
+
+        section {
+            margin-bottom: 90px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-number {
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            max-width: 760px;
+        }
+
+        .content-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+            border-radius: 22px;
+            transition: 0.25s ease;
+        }
+
+        .content-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(255,255,255,0.13);
+            transform: translateY(-2px);
+        }
+
+        .content-card + .content-card {
+            margin-top: 16px;
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FEATURES */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .feature {
+            padding: 22px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 18px;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* LIST */
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        li {
+            position: relative;
+            padding: 13px 16px 13px 43px;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.055);
+            border-radius: 12px;
+            color: #d5d5d5;
+            font-size: 15px;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fff;
+            transform: translateY(-50%);
+        }
+
+        /* BETA */
+
+        .beta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beta::before {
+            content: "BETA";
+            position: absolute;
+            top: 22px;
+            right: -35px;
+            transform: rotate(45deg);
+            padding: 6px 45px;
+            background: #fff;
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .beta-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .beta-item:first-child {
+            padding-top: 0;
+        }
+
+        .beta-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .beta-item h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .beta-item p {
+            margin: 0;
+        }
+
+        .beta-warning {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* LINKS */
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--card);
+            transition: 0.25s ease;
+        }
+
+        .link-card:hover {
+            background: #181818;
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        .link-card strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .link-card span {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .arrow {
+            font-size: 22px;
+            color: #888;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 70px 0 40px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: clamp(32px, 7vw, 60px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+        }
+
+        .footer-subtitle {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .credits {
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .top {
+            display: inline-flex;
+            margin-top: 30px;
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .top:hover {
+            color: #fff;
+            border-color: #555;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: min(100% - 22px, 1000px);
+            }
+
+            .hero {
+                min-height: 65vh;
+                padding: 70px 0 50px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .intro {
+                margin-bottom: 60px;
+            }
+
+            section {
+                margin-bottom: 65px;
+            }
+
+            .content-card {
+                padding: 21px;
+                border-radius: 18px;
+            }
+
+            .feature-grid,
+            .links {
+                grid-template-columns: 1fr;
+            }
+
+            .beta::before {
+                right: -45px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <header class="hero">
+        <div class="container">
+
+            <div class="version">
+                <span class="version-dot"></span>
+                Auris 1.0.2
+            </div>
+
+            <h1>
+                Auris <span>1.0.2</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Uma nova experiência, mais conectada,
+                inteligente e personalizável.
+            </p>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- INTRO -->
+
+        <div class="intro">
+
+            <p>
+                A versão 1.0.2 do Auris marca uma nova etapa no
+                desenvolvimento do projeto, trazendo melhorias importantes,
+                novos recursos e uma experiência mais integrada.
+            </p>
+
+            <br>
+
+            <p>
+                Nesta atualização, o Auris recebe a Auris Account,
+                uma integração mais avançada com inteligência artificial,
+                melhorias no player, equalizador, personalização,
+                suporte interno e diversas outras novidades.
+            </p>
+
+            <div class="notice">
+                Alguns recursos ainda estão em desenvolvimento e poderão
+                sofrer alterações, ser adiados ou até mesmo descontinuados
+                durante o processo.
+            </div>
+
+        </div>
+
+
+        <!-- AURIS ACCOUNT -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">01 — Conta</div>
+                <h2>Auris Account</h2>
+                <p class="section-description">
+                    Uma nova forma de centralizar e sincronizar sua
+                    experiência dentro do Auris.
+                </p>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    A Auris Account chega para centralizar sua experiência
+                    dentro do Auris.
+                </p>
+
+                <p>
+                    Agora, será possível conectar e gerenciar diferentes
+                    serviços de nuvem, como Google Drive, Subsonic,
+                    Telegram e outros serviços compatíveis, tudo integrado
+                    à sua conta da Golden System.
+                </p>
+
+                <p>
+                    A conta também permitirá sincronizar e restaurar
+                    automaticamente seus dados, mantendo tudo conectado
+                    em um único lugar.
+                </p>
+
+                <ul>
+                    <li>Playlists</li>
+                    <li>Preferências</li>
+                    <li>Configurações</li>
+                    <li>Temas</li>
+                    <li>Personalizações</li>
+                    <li>Backups</li>
+                    <li>Outros dados do aplicativo</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Ao conectar sua conta em um novo dispositivo, seus
+                    dados poderão ser restaurados automaticamente,
+                    tornando a troca ou recuperação de dispositivo
+                    muito mais simples.
+                </p>
+
+                <p>
+                    A Auris Account também permitirá a participação em
+                    eventos de recompensa e dará acesso ao Auris Premium,
+                    uma nova modalidade destinada aos usuários que desejam
+                    ter acesso antecipado a recursos que ainda estão
+                    em desenvolvimento.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- IA -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">02 — Inteligência</div>
+                <h2>Integração com Inteligência Artificial</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O Auris também recebe uma integração mais avançada
+                    com inteligência artificial.
+                </p>
+
+                <p>
+                    O novo assistente poderá auxiliar o usuário diretamente
+                    dentro do aplicativo, permitindo realizar diversas
+                    ações por meio de comandos.
+                </p>
+
+                <ul>
+                    <li>Criar playlists automaticamente</li>
+                    <li>Reproduzir músicas de acordo com seu humor ou preferência</li>
+                    <li>Pesquisar músicas</li>
+                    <li>Reproduzir ou pausar músicas</li>
+                    <li>Fechar o player</li>
+                    <li>Excluir músicas</li>
+                    <li>Alterar configurações</li>
+                    <li>Personalizar temas</li>
+                    <li>Realizar backups na nuvem através da conta</li>
+                    <li>Auxiliar na configuração do aplicativo</li>
+                    <li>Executar diversas outras ações dentro do Auris</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    A proposta é tornar tarefas que normalmente exigiriam
+                    vários passos mais simples e acessíveis, permitindo
+                    que o usuário controle diferentes partes do aplicativo
+                    através do assistente.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EQUALIZADOR -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">03 — Áudio</div>
+                <h2>Equalizador aprimorado</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O sistema de áudio também recebeu melhorias.
+                </p>
+
+                <p>
+                    O equalizador foi aprimorado e integrado diretamente
+                    ao UnifiedPlayerSheetV2, trazendo mais possibilidades
+                    de personalização sonora.
+                </p>
+
+                <ul>
+                    <li>Novos controles de equalização</li>
+                    <li>Melhor gerenciamento das bandas de frequência</li>
+                    <li>Melhor reprodução de graves</li>
+                    <li>Melhorias no virtualizador</li>
+                    <li>Novos ajustes de áudio</li>
+                    <li>Integração mais completa com o player</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    A experiência de reprodução foi desenvolvida para
+                    oferecer maior controle sobre a forma como cada
+                    música é reproduzida.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PLAYER -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">04 — Player</div>
+                <h2>Novo UnifiedPlayerSheetV2</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O UnifiedPlayerSheetV2 recebeu uma reformulação
+                    visual e funcional.
+                </p>
+
+                <p>
+                    Além do novo sistema de equalização, o player agora
+                    conta com um card dedicado às letras das músicas,
+                    localizado logo abaixo dos controles principais
+                    de reprodução.
+                </p>
+
+                <p>
+                    Após alguns segundos sem interação, o card de opções
+                    desaparece automaticamente e dá lugar a um card
+                    moderno de letras, permitindo acompanhar a música
+                    sem ocupar permanentemente o espaço dos controles.
+                </p>
+
+                <p>
+                    O objetivo é tornar o player mais limpo, moderno
+                    e funcional.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUPORTE -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">05 — Suporte</div>
+                <h2>Novo sistema de suporte interno</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O Auris agora possui um sistema de suporte mais
+                    acessível e integrado ao aplicativo.
+                </p>
+
+                <p>
+                    O usuário poderá acessar a página de suporte
+                    diretamente pelas configurações ou pelo Bottom Sheet
+                    da tela inicial.
+                </p>
+
+                <ul>
+                    <li>Solicitar ajuda</li>
+                    <li>Reportar bugs</li>
+                    <li>Informar problemas</li>
+                    <li>Enviar feedback</li>
+                    <li>Relatar dificuldades encontradas no aplicativo</li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Quando conectado à Auris Account, o processo poderá
+                    ser ainda mais rápido e confiável, utilizando o
+                    endereço de e-mail associado à conta para facilitar
+                    o atendimento e a comunicação.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEMAS -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">06 — Personalização</div>
+                <h2>Novidades nos temas personalizados</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O sistema de personalização também recebeu melhorias.
+                </p>
+
+                <p>
+                    Agora será possível personalizar os containers da
+                    interface, oferecendo maior liberdade para criar
+                    diferentes combinações de cores e estilos.
+                </p>
+
+                <p>
+                    Além disso, o Auris passa a contar com uma opção para
+                    fazer o tema acompanhar automaticamente o papel de parede.
+                </p>
+
+                <p>
+                    Um sistema de análise inteligente poderá identificar
+                    características do papel de parede e gerar uma
+                    combinação de cores que mantenha o visual do aplicativo
+                    harmonizado com ele.
+                </p>
+
+                <p>
+                    Também foram adicionados novos papéis de parede ao
+                    servidor, ampliando as opções disponíveis para
+                    personalização.
+                </p>
+
+                <p>
+                    Diversas animações e detalhes visuais também receberam
+                    melhorias.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- VIDEO -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">07 — Vídeos</div>
+                <h2>Player de vídeos</h2>
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    O player de vídeos está recebendo uma reformulação
+                    visual, buscando oferecer uma experiência mais moderna
+                    e profissional no Android.
+                </p>
+
+                <p>
+                    A nova versão contará com suporte a mais resoluções
+                    e novas opções de reprodução, incluindo diferentes
+                    formas de enquadramento e visualização.
+                </p>
+
+                <p>
+                    Também será possível utilizar recursos relacionados
+                    a letras quando o vídeo estiver associado a uma música
+                    ou conteúdo compatível, incluindo a possibilidade de
+                    buscar letras na internet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BETA -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">08 — Experimental</div>
+                <h2>Recursos em BETA</h2>
+                <p class="section-description">
+                    Recursos em avaliação para possíveis versões futuras.
+                </p>
+            </div>
+
+            <div class="content-card beta">
+
+                <div class="beta-item">
+                    <h3>Integração com YouTube</h3>
+                    <p>
+                        Possibilidade de integração com o YouTube para
+                        visualização de conteúdos e, caso seja tecnicamente
+                        e legalmente viável, recursos relacionados a músicas.
+                    </p>
+                </div>
+
+                <div class="beta-item">
+                    <h3>Busca e download através de bots</h3>
+                    <p>
+                        Estão sendo estudadas integrações com bots do
+                        Telegram e Discord para busca e obtenção de músicas.
+                    </p>
+                </div>
+
+                <div class="beta-item">
+                    <h3>Nuvem através do Telegram</h3>
+                    <p>
+                        Também está em avaliação uma integração de
+                        armazenamento em nuvem utilizando o Telegram
+                        conectado diretamente aos serviços do Auris.
+                    </p>
+                </div>
+
+                <div class="beta-warning">
+                    <strong>Importante:</strong>
+                    os recursos apresentados nesta seção são possibilidades
+                    em desenvolvimento. Isso não significa que todos serão
+                    lançados oficialmente.
+                    <br><br>
+                    Durante o desenvolvimento, determinadas funções poderão
+                    ser modificadas, adiadas ou descontinuadas.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LINKS -->
+
+        <section>
+
+            <div class="section-header">
+                <div class="section-number">09 — Auris Online</div>
+                <h2>Acompanhe o desenvolvimento</h2>
+
+                <p class="section-description">
+                    Você pode acompanhar o desenvolvimento do Auris,
+                    conferir novidades e acessar os principais recursos
+                    através do site oficial.
+                </p>
+            </div>
+
+            <div class="links">
+
+                <a
+                    class="link-card"
+                    href="https://synvertexstudios.github.io/Auris-website/data/beta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div>
+                        <strong>Desenvolvimento BETA</strong>
+                        <span>Acompanhe os recursos em desenvolvimento</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+
+                <a
+                    class="link-card"
+                    href="https://synvertexstudios.github.io/Auris-website/download"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div>
+                        <strong>Download do Auris</strong>
+                        <span>Baixe a versão disponível</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+
+                <a
+                    class="link-card"
+                    href="https://synvertexstudios.github.io/Auris-website/data/support"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div>
+                        <strong>Central de suporte</strong>
+                        <span>Envie sua opinião, feedback ou solicitação</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+
+                <a
+                    class="link-card"
+                    href="https://synvertexstudios.github.io/Auris-website/data/changelog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div>
+                        <strong>Changelog</strong>
+                        <span>Acompanhe todas as modificações</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-title">
+                Auris
+            </div>
+
+            <p class="footer-subtitle">
+                Seu player de música. Do seu jeito.
+            </p>
+
+            <p class="footer-subtitle" style="margin-top: 20px;">
+                A versão 1.0.2 representa mais um passo na evolução do Auris,
+                aproximando música, personalização, inteligência artificial,
+                nuvem e uma experiência cada vez mais integrada em um único
+                aplicativo.
+            </p>
+
+            <div class="credits">
+                Golden System Studios — 2026<br>
+                Theovilardo — 2024<br>
+                SYN Vertex — 2026
+            </div>
+
+            <a href="#top" class="top">
+                Voltar ao topo
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
