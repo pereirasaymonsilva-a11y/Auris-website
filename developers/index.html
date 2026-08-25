@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Materiais — Auris</title>
+
+    <meta
+        name="description"
+        content="Central oficial de materiais e identidade visual do Auris Music Player."
+    >
+
+    <!-- =========================
+         COMPARTILHAMENTO
+    ========================= -->
+
+    <meta
+        property="og:title"
+        content="Materiais — Auris"
+    >
+
+    <meta
+        property="og:description"
+        content="Central oficial de materiais e identidade visual do Auris Music Player."
+    >
+
+    <meta
+        property="og:image"
+        content="https://synvertexstudios.github.io/Auris-website/preview.png"
+    >
+
+    <meta
+        property="og:url"
+        content="https://synvertexstudios.github.io/Auris-website/data/materials.html"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Materiais — Auris"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Central oficial de materiais e identidade visual do Auris Music Player."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://synvertexstudios.github.io/Auris-website/preview.png"
+    >
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.png"
+    >
+
+    <!-- FONTES -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ICONES -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =========================
+           BASE
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            font-family:
+                "Inter",
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            color: #eef2f7;
+
+            background:
+                radial-gradient(
+                    circle at 10% 0%,
+                    rgba(0,217,255,.07),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(0,119,255,.045),
+                    transparent 30%
+                ),
+                #05070a;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 64px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+            background:
+                rgba(5,7,10,.82);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+        }
+
+        .navbar-inner {
+
+            width:
+                min(
+                    1100px,
+                    calc(100% - 32px)
+                );
+
+            height: 100%;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 17px;
+
+            font-weight: 700;
+        }
+
+        .logo img {
+
+            width: 32px;
+
+            height: 32px;
+
+            object-fit: cover;
+
+            border-radius: 9px;
+        }
+
+
+        /* =========================
+           VOLTAR
+        ========================= */
+
+        .back {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #8995a5;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            transition: .2s;
+        }
+
+        .back:hover {
+            color: #00d9ff;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width:
+                min(
+                    1100px,
+                    calc(100% - 32px)
+                );
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .header {
+
+            padding:
+                75px
+                0
+                45px;
+        }
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 14px;
+
+            color: #00d9ff;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+        }
+
+        .eyebrow i {
+            font-size: 11px;
+        }
+
+        .header h1 {
+
+            max-width: 800px;
+
+            font-size:
+                clamp(
+                    38px,
+                    6vw,
+                    62px
+                );
+
+            line-height: 1;
+
+            letter-spacing: -.055em;
+        }
+
+        .header h1 span {
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #00e0ff,
+                    #0077ff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .header p {
+
+            max-width: 620px;
+
+            margin-top: 18px;
+
+            color: #8995a5;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        .section {
+
+            margin-bottom: 70px;
+        }
+
+        .section-header {
+
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            letter-spacing: -.025em;
+        }
+
+        .section-description {
+
+            max-width: 620px;
+
+            margin-top: 7px;
+
+            color: #8995a5;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MATERIAL GRID
+        ========================= */
+
+        .materials-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
+
+            gap: 15px;
+        }
+
+
+        /* =========================
+           MATERIAL CARD
+        ========================= */
+
+        .material-card {
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                background .25s ease;
+        }
+
+        .material-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(0,217,255,.2);
+
+            background:
+                rgba(255,255,255,.045);
+        }
+
+
+        /* =========================
+           MATERIAL PREVIEW
+        ========================= */
+
+        .material-preview {
+
+            height: 185px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,217,255,.055),
+                    transparent 65%
+                ),
+                #080b10;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+        }
+
+        .material-preview img {
+
+            max-width: 85%;
+
+            max-height: 135px;
+
+            display: block;
+
+            object-fit: contain;
+        }
+
+
+        /* LOGO DEMONSTRAÇÃO */
+
+        .logo-preview {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            letter-spacing: -.06em;
+        }
+
+        .logo-preview span {
+            color: #00d9ff;
+        }
+
+
+        /* ÍCONE */
+
+        .icon-preview {
+
+            width: 100px;
+
+            height: 100px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d9ff,
+                    #0077ff
+                );
+
+            color: white;
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 20px 45px
+                rgba(0,119,255,.2);
+        }
+
+
+        /* =========================
+           MATERIAL INFO
+        ========================= */
+
+        .material-content {
+
+            padding: 16px;
+        }
+
+        .material-content h3 {
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .material-info {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-top: 6px;
+
+            margin-bottom: 14px;
+
+            color: #66717f;
+
+            font-size: 9px;
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .download {
+
+            width: 100%;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(0,217,255,.09);
+
+            color: #00d9ff;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            transition:
+                background .2s ease,
+                color .2s ease,
+                transform .2s ease;
+        }
+
+        .download:hover {
+
+            background: #00d9ff;
+
+            color: #041016;
+
+            transform:
+                translateY(-1px);
+        }
+
+        .download i {
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           TEMA SCREENSHOTS
+        ========================= */
+
+        .theme-group {
+
+            margin-top: 38px;
+        }
+
+        .theme-heading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            margin-bottom: 15px;
+        }
+
+        .theme-icon {
+
+            width: 36px;
+
+            height: 36px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(0,217,255,.08);
+
+            color: #00d9ff;
+
+            font-size: 13px;
+        }
+
+        .theme-heading h3 {
+
+            font-size: 15px;
+
+            font-weight: 700;
+        }
+
+        .theme-heading span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #66717f;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           SCREENSHOTS GRID
+        ========================= */
+
+        .screenshots-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0,1fr)
+                );
+
+            gap: 14px;
+        }
+
+
+        /* =========================
+           SCREENSHOT CARD
+        ========================= */
+
+        .screenshot-card {
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                background .25s ease;
+        }
+
+        .screenshot-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(0,217,255,.2);
+
+            background:
+                rgba(255,255,255,.045);
+        }
+
+
+        /* =========================
+           SCREENSHOT PREVIEW
+        ========================= */
+
+        .screenshot-preview {
+
+            width: 100%;
+
+            overflow: hidden;
+
+            background: #080b10;
+        }
+
+        .screenshot-preview img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+
+            transition:
+                transform .3s ease;
+        }
+
+        .screenshot-card:hover
+        .screenshot-preview img {
+
+            transform:
+                scale(1.025);
+        }
+
+
+        /* =========================
+           SCREENSHOT INFO
+        ========================= */
+
+        .screenshot-content {
+
+            min-height: 66px;
+
+            padding: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .screenshot-content strong {
+
+            display: block;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+        .screenshot-content span {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: #66717f;
+
+            font-size: 8px;
+        }
+
+
+        /* =========================
+           DOWNLOAD PEQUENO
+        ========================= */
+
+        .download-small {
+
+            width: 34px;
+
+            height: 34px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 9px;
+
+            background:
+                rgba(0,217,255,.09);
+
+            color: #00d9ff;
+
+            font-size: 11px;
+
+            transition:
+                background .2s ease,
+                color .2s ease,
+                transform .2s ease;
+        }
+
+        .download-small:hover {
+
+            background: #00d9ff;
+
+            color: #041016;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =========================
+           PACOTE COMPLETO
+        ========================= */
+
+        .package {
+
+            margin-top: 15px;
+
+            padding: 28px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            border:
+                1px solid
+                rgba(0,217,255,.15);
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(0,217,255,.08),
+                    transparent 45%
+                ),
+                rgba(255,255,255,.025);
+        }
+
+        .package-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            margin-bottom: 13px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(0,217,255,.09);
+
+            color: #00d9ff;
+        }
+
+        .package h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 6px;
+        }
+
+        .package p {
+
+            max-width: 550px;
+
+            color: #8995a5;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .package .download {
+
+            width: auto;
+
+            min-width: 190px;
+
+            padding:
+                0
+                20px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            margin-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.06);
+
+            padding:
+                24px
+                16px;
+
+            color: #596575;
+
+            font-size: 10px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .materials-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
+            }
+
+            .screenshots-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0,1fr)
+                    );
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 520px) {
+
+            .container,
+            .navbar-inner {
+
+                width:
+                    calc(100% - 24px);
+            }
+
+            .header {
+
+                padding:
+                    50px
+                    0
+                    35px;
+            }
+
+            .header h1 {
+
+                font-size: 35px;
+            }
+
+            .header p {
+
+                font-size: 13px;
+            }
+
+            .section {
+
+                margin-bottom: 55px;
+            }
+
+            .materials-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 10px;
+            }
+
+            .material-preview {
+
+                height: 180px;
+            }
+
+            .screenshots-grid {
+
+                gap: 8px;
+            }
+
+            .screenshot-card {
+
+                border-radius: 13px;
+            }
+
+            .screenshot-content {
+
+                min-height: 58px;
+
+                padding: 8px;
+            }
+
+            .screenshot-content strong {
+
+                font-size: 9px;
+            }
+
+            .screenshot-content span {
+
+                font-size: 7px;
+            }
+
+            .download-small {
+
+                width: 29px;
+
+                height: 29px;
+
+                border-radius: 7px;
+
+                font-size: 9px;
+            }
+
+            .package {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 22px;
+            }
+
+            .package .download {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="navbar-inner">
+
+            <a
+                href="home.html"
+                class="logo"
+            >
+
+                <img
+                    src="icone.auris"
+                    alt="Auris"
+                >
+
+                <span>Auris</span>
+
+            </a>
+
+
+            <a
+                href="home.html"
+                class="back"
+            >
+
+                <i class="fas fa-arrow-left"></i>
+
+                Voltar
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="header container">
+
+        <div class="eyebrow">
+
+            <i class="fas fa-folder-open"></i>
+
+            Materiais oficiais
+
+        </div>
+
+
+        <h1>
+
+            Tudo para
+            <span>representar o Auris.</span>
+
+        </h1>
+
+
+        <p>
+
+            Encontre logos, ícones, screenshots e outros
+            materiais oficiais do Auris para utilizar em
+            divulgações, apresentações, redes sociais
+            e conteúdos relacionados ao projeto.
+
+        </p>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =========================
+             IDENTIDADE VISUAL
+        ========================= -->
+
+        <section
+            class="section container"
+            id="identidade"
+        >
+
+            <div class="section-header">
+
+                <div class="eyebrow">
+
+                    <i class="fas fa-palette"></i>
+
+                    Marca
+
+                </div>
+
+                <div class="section-title">
+
+                    Identidade visual
+
+                </div>
+
+                <div class="section-description">
+
+                    Logos, ícones e elementos oficiais
+                    da identidade visual do Auris.
+
+                </div>
+
+            </div>
+
+
+            <div class="materials-grid">
+
+
+                <!-- LOGO PNG -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <div class="logo-preview">
+
+                            Auri<span>s</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Logo principal
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>Transparente</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/logo-auris.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar PNG
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LOGO SVG -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <div class="logo-preview">
+
+                            Auri<span>s</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Logo principal
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>SVG</span>
+
+                            <span>Vetorial</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/logo-auris.svg"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar SVG
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ÍCONE -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <div class="icon-preview">
+
+                            A
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Ícone do Auris
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>Alta resolução</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/auris-icon.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar ícone
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LOGO BRANCA -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <div
+                            class="logo-preview"
+                            style="color:white;"
+                        >
+
+                            Auri<span>s</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Logo para fundos escuros
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>Transparente</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/logo-auris-white.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar logo
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LOGO PRETA -->
+
+                <article class="material-card">
+
+                    <div
+                        class="material-preview"
+                        style="background:#f3f5f7;"
+                    >
+
+                        <div
+                            class="logo-preview"
+                            style="color:#111;"
+                        >
+
+                            Auri<span>s</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Logo para fundos claros
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>Transparente</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/logo-auris-black.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar logo
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAVICON -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <div class="icon-preview">
+
+                            A
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Favicon
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>ICO</span>
+
+                            <span>32 × 32</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/favicon.ico"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar favicon
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DIVULGAÇÃO
+        ========================= -->
+
+        <section
+            class="section container"
+            id="divulgacao"
+        >
+
+            <div class="section-header">
+
+                <div class="eyebrow">
+
+                    <i class="fas fa-bullhorn"></i>
+
+                    Divulgação
+
+                </div>
+
+                <div class="section-title">
+
+                    Materiais de divulgação
+
+                </div>
+
+                <div class="section-description">
+
+                    Artes oficiais para posts, banners,
+                    redes sociais e outros conteúdos.
+
+                </div>
+
+            </div>
+
+
+            <div class="materials-grid">
+
+
+                <!-- BANNER -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <img
+                            src="materiais/banner-auris.png"
+                            alt="Banner oficial do Auris"
+                        >
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Banner oficial
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>1920 × 1080</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/banner-auris.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar banner
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SOCIAL -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <img
+                            src="materiais/auris-social.png"
+                            alt="Arte do Auris para redes sociais"
+                        >
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Arte para redes sociais
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>1080 × 1080</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/auris-social.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar arte
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- STORY -->
+
+                <article class="material-card">
+
+                    <div class="material-preview">
+
+                        <img
+                            src="materiais/auris-story.png"
+                            alt="Story oficial do Auris"
+                        >
+
+                    </div>
+
+
+                    <div class="material-content">
+
+                        <h3>
+                            Story
+                        </h3>
+
+                        <div class="material-info">
+
+                            <span>PNG</span>
+
+                            <span>1080 × 1920</span>
+
+                        </div>
+
+
+                        <a
+                            href="materiais/auris-story.png"
+                            download
+                            class="download"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            Baixar story
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SCREENSHOTS
+        ========================= -->
+
+        <section
+            class="section container"
+            id="screenshots"
+        >
+
+            <div class="section-header">
+
+                <div class="eyebrow">
+
+                    <i class="fas fa-images"></i>
+
+                    Interface
+
+                </div>
+
+                <div class="section-title">
+
+                    Screenshots
+
+                </div>
+
+                <div class="section-description">
+
+                    Capturas oficiais da interface do Auris
+                    para divulgação, apresentações e
+                    materiais promocionais.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 TEMA ESCURO
+            ====================== -->
+
+            <div class="theme-group">
+
+                <div class="theme-heading">
+
+                    <div class="theme-icon">
+
+                        <i class="fas fa-moon"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Tema escuro
+                        </h3>
+
+                        <span>
+                            Interface Dark
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="screenshots-grid">
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themedark1.jpg"
+                                alt="Auris tema escuro 1"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema escuro 01
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themedark1.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themedark2.jpg"
+                                alt="Auris tema escuro 2"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema escuro 02
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themedark2.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themedark3.jpg"
+                                alt="Auris tema escuro 3"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema escuro 03
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themedark3.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themedark4.jpg"
+                                alt="Auris tema escuro 4"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema escuro 04
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themedark4.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 TEMA CLARO
+            ====================== -->
+
+            <div class="theme-group">
+
+                <div class="theme-heading">
+
+                    <div class="theme-icon">
+
+                        <i class="fas fa-sun"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Tema claro
+                        </h3>
+
+                        <span>
+                            Interface Light
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="screenshots-grid">
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themelight1.jpg"
+                                alt="Auris tema claro 1"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema claro 01
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themelight1.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themelight2.jpg"
+                                alt="Auris tema claro 2"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema claro 02
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themelight2.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themelight3.jpg"
+                                alt="Auris tema claro 3"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema claro 03
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themelight3.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themelight4.jpg"
+                                alt="Auris tema claro 4"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Tema claro 04
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themelight4.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 TEMA PERSONALIZADO
+            ====================== -->
+
+            <div class="theme-group">
+
+                <div class="theme-heading">
+
+                    <div class="theme-icon">
+
+                        <i class="fas fa-palette"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Tema personalizado
+                        </h3>
+
+                        <span>
+                            Interface Custom
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="screenshots-grid">
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themecustom1.jpg"
+                                alt="Auris tema personalizado 1"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Personalizado 01
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themecustom1.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themecustom2.jpg"
+                                alt="Auris tema personalizado 2"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Personalizado 02
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themecustom2.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themecustom3.jpg"
+                                alt="Auris tema personalizado 3"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Personalizado 03
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themecustom3.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="screenshot-card">
+
+                        <div class="screenshot-preview">
+
+                            <img
+                                src="assets/screenshots/themecustom4.jpg"
+                                alt="Auris tema personalizado 4"
+                            >
+
+                        </div>
+
+
+                        <div class="screenshot-content">
+
+                            <div>
+
+                                <strong>
+                                    Personalizado 04
+                                </strong>
+
+                                <span>
+                                    JPG · Screenshot
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="assets/screenshots/themecustom4.jpg"
+                                download
+                                class="download-small"
+                                title="Baixar screenshot"
+                            >
+
+                                <i class="fas fa-download"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PACOTE COMPLETO
+        ========================= -->
+
+        <section
+            class="container"
+            style="padding-bottom:80px;"
+        >
+
+            <div class="package">
+
+                <div>
+
+                    <div class="package-icon">
+
+                        <i class="fas fa-file-archive"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Pacote completo
+                    </h2>
+
+
+                    <p>
+
+                        Baixe todos os materiais oficiais
+                        de identidade visual e divulgação
+                        do Auris em um único arquivo ZIP.
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="materiais/auris-brand-kit.zip"
+                    download
+                    class="download"
+                >
+
+                    <i class="fas fa-download"></i>
+
+                    Baixar Brand Kit
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        Auris Music Player · © 2026
+
+    </footer>
+
+
+</body>
+
+</html>
